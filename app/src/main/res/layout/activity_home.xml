@@ -22,14 +22,6 @@
     <ImageButton
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/user"
-        android:id="@+id/profileButton"
-        android:layout_alignBottom="@+id/statusButton"
-        android:layout_toEndOf="@+id/statusButton" />
-
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
         app:srcCompat="@drawable/time"
         android:id="@+id/historyButton"
         android:layout_alignTop="@+id/newOrderButton"
@@ -55,4 +47,12 @@
         android:id="@+id/imageButton5"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/user"
+        android:id="@+id/profileButton"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/statusButton" />
 </RelativeLayout>

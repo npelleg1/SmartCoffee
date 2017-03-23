@@ -13,11 +13,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-    //    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    //    DatabaseReference myRef = database.getReference("Orders");
-
-    //    myRef.setValue("Black Coffee");
-
         final ImageButton newOrderButton = (ImageButton) findViewById(R.id.newOrderButton);
         newOrderButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

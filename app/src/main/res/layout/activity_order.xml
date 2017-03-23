@@ -26,14 +26,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/morningBlendRadioButton"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="onCoffeeChoiceRadioButtonClicked"/>
 
         <RadioButton
             android:text="Hazelnut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/hazelnutBlendRadioButton"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="onCoffeeChoiceRadioButtonClicked"/>
     </RadioGroup>
 
     <TextView
@@ -141,21 +143,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/smallRadioButton"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="onSizeChoiceRadioButtonClicked"/>
 
         <RadioButton
             android:text="Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/mediumRadioButton"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="onSizeChoiceRadioButtonClicked"/>
 
         <RadioButton
             android:text="Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/largeRadioButton"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="onSizeChoiceRadioButtonClicked"/>
     </RadioGroup>
 
     <Button
