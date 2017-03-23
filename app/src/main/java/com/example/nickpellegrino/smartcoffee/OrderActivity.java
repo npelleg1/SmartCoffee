@@ -1,5 +1,6 @@
 package com.example.nickpellegrino.smartcoffee;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ public class OrderActivity extends AppCompatActivity {
     String coffeeOrder = null;
     String coffeeSize = null;
     String classroom;
+    String userID;
     int sugars = 0;
     int creams = 0;
     FirebaseDatabase database;
@@ -31,6 +33,9 @@ public class OrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order);
 
         database = FirebaseDatabase.getInstance();
+
+        Intent intent = getIntent();
+        userID = intent.getStringExtra("UserID");
 
 /*******************SUGAR COUNT LOGIC***************************************************************/
         final TextView sugarCountTextView = (TextView) findViewById(R.id.sugarCountTextView);
@@ -97,9 +102,11 @@ public class OrderActivity extends AppCompatActivity {
                 else{
                     classroom = roomPicker.getDisplayedValues()[roomPicker.getValue()];
                     DatabaseReference myRef = database.getReference("Orders");
-                    CoffeeOrder newOrder = new CoffeeOrder(coffeeOrder, coffeeSize, classroom, sugars, creams);
+                    CoffeeOrder newOrder = new CoffeeOrder(coffeeOrder, coffeeSize, classroom, sugars, creams, userID);
                     myRef.child(Integer.toString(newOrder.orderID)).setValue(newOrder);
                     Toast.makeText(getApplicationContext(), "Your Order has been Placed!", Toast.LENGTH_SHORT).show();
+                    Intent intent2 = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(intent2);
                 }
             }
         });

@@ -13,11 +13,14 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        Intent intent = getIntent();
+        final String userID = intent.getStringExtra("UserID");
+
         final ImageButton newOrderButton = (ImageButton) findViewById(R.id.newOrderButton);
         newOrderButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                intent.putExtra("UserID", userID);
                 startActivity(intent);
             }
         });

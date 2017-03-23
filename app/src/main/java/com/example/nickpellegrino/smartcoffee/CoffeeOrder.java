@@ -13,8 +13,9 @@ public class CoffeeOrder {
     public int sugars;
     public int creams;
     public int orderID;
+    public String userID;
 
-    public CoffeeOrder(String coffeeOrder, String coffeeSize, String classroom, int sugars, int creams){
+    public CoffeeOrder(String coffeeOrder, String coffeeSize, String classroom, int sugars, int creams, String userID){
         this.coffeeOrder = coffeeOrder;
         this.coffeeSize = coffeeSize;
         this.classroom = classroom;
@@ -22,5 +23,6 @@ public class CoffeeOrder {
         this.creams = creams;
         Random rand = new Random();
         this.orderID = rand.nextInt(1023) + 0;
+        this.userID = userID;
     }
 }
