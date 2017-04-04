@@ -13,180 +13,302 @@
     tools:context="com.example.nickpellegrino.smartcoffee.OrderActivity">
 
 
-    <RadioGroup
+    <TextView
+        android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/coffeeRadioGroup"
-        android:layout_alignStart="@+id/minusSugarButton">
-
-        <RadioButton
-            android:text="Morning Blend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/morningBlendRadioButton"
-            android:layout_weight="1"
-            android:onClick="onCoffeeChoiceRadioButtonClicked"/>
-
-        <RadioButton
-            android:text="Hazelnut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/hazelnutBlendRadioButton"
-            android:layout_weight="1"
-            android:onClick="onCoffeeChoiceRadioButtonClicked"/>
-    </RadioGroup>
+        android:gravity="center"
+        android:text="    Cream B"
+        android:layout_alignBaseline="@+id/textView11"
+        android:layout_alignBottom="@+id/textView11"
+        android:layout_toEndOf="@+id/creamAButton" />
 
     <TextView
-        android:text="Coffee Selection"
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Cream C"
+        android:layout_below="@+id/creamCButton"
+        android:layout_alignEnd="@+id/creamCButton" />
+
+    <ImageButton
+        android:id="@+id/splendaSugarButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/sugar"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:id="@+id/equalSugarButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/splendaSugarButton"
+        android:layout_toEndOf="@+id/splendaSugarButton"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/sugar" />
+
+    <ImageButton
+        android:id="@+id/morningBlendButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="118dp"
+        android:background="@null"
+        android:onClick="onCoffeeChoiceButtonClicked"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/sunrise"
         android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/mediumCoffeeButton" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignStart="@+id/morningBlendButton"
+        android:layout_below="@+id/morningBlendButton"
+        android:text="Morning Blend"
+        android:layout_alignEnd="@+id/morningBlendButton" />
+
+    <ImageButton
+        android:id="@+id/hazelnutButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:onClick="onCoffeeChoiceButtonClicked"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/hazelnut"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignEnd="@+id/hazelnutButton"
+        android:layout_alignStart="@+id/hazelnutButton"
+        android:layout_below="@+id/hazelnutButton"
+        android:text="Hazelnut" />
+
+    <ImageButton
+        android:id="@+id/regularSugarButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/textView4"
+        android:layout_toEndOf="@+id/equalSugarButton"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/sugar" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:text="Coffe Type" />
+
+    <ImageButton
+        android:id="@+id/plusSugarButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@+id/submitOrderButton"
+        android:layout_alignTop="@+id/regularSugarButton"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/up" />
+
+    <ImageButton
+        android:id="@+id/minusSugarButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/plusSugarButton"
+        android:layout_below="@+id/plusSugarButton"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/down" />
+
+    <EditText
+        android:id="@+id/creamCountTextView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="1"
+        android:layout_alignBottom="@+id/creamCButton"
+        android:layout_toStartOf="@+id/plusCreamButton" />
+
+    <EditText
+        android:id="@+id/sugarCountTextView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:text="1"
+        android:layout_alignBottom="@+id/regularSugarButton"
+        android:layout_toStartOf="@+id/plusSugarButton"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Splenda"
+        android:gravity="center"
+        android:layout_below="@+id/splendaSugarButton"
         android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/equalSugarButton" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Equal"
+        android:gravity="center"
+        android:layout_marginEnd="15dp"
+        android:layout_below="@+id/equalSugarButton"
+        android:layout_toStartOf="@+id/regularSugarButton" />
+
+    <TextView
         android:id="@+id/textView7"
-        android:textSize="20dp"
-        android:layout_alignBottom="@+id/coffeeRadioGroup" />
-
-    <TextView
-        android:text="Sugars"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView7"
+        android:text="Regular"
+        android:gravity="center"
+        android:layout_below="@+id/regularSugarButton"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:id="@+id/creamCButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/creamBButton"
+        android:layout_toEndOf="@+id/creamBButton"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/creamcup" />
+
+    <ImageButton
+        android:id="@+id/creamBButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/creamAButton"
+        android:layout_toEndOf="@+id/creamAButton"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/creamcup" />
+
+    <ImageButton
+        android:id="@+id/creamAButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/minusSugarButton"
-        android:textSize="20dp"
-        android:id="@+id/textView8" />
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="11dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/creamcup" />
+
+    <ImageButton
+        android:id="@+id/plusCreamButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/creamCButton"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/up" />
+
+    <ImageButton
+        android:id="@+id/minusCreamButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/plusCreamButton"
+        android:layout_below="@+id/plusCreamButton"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/down" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/creamAButton"
+        android:gravity="center"
+        android:text="Cream A"
+        android:layout_toStartOf="@+id/textView12"
+        android:layout_alignBottom="@+id/textView12" />
+
+    <ImageButton
+        android:id="@+id/mediumCoffeeButton"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:background="@null"
+        android:onClick="onSizeChoiceButtonClicked"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/coffe_2"
+        android:layout_alignBottom="@+id/largeCoffeeButton"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:id="@+id/largeCoffeeButton"
+        android:layout_width="60dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="12dp"
+        android:background="@null"
+        android:onClick="onSizeChoiceButtonClicked"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/coffe_2"
+        android:layout_below="@+id/textView12"
+        android:layout_toEndOf="@+id/mediumCoffeeButton" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regular"
+        android:gravity="center"
+        android:layout_below="@+id/mediumCoffeeButton"
+        android:layout_alignStart="@+id/mediumCoffeeButton"
+        android:layout_alignEnd="@+id/mediumCoffeeButton" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large"
+        android:gravity="center"
+        android:layout_below="@+id/largeCoffeeButton"
+        android:layout_toEndOf="@+id/textView10" />
 
     <Button
-        android:text="+"
+        android:id="@+id/submitOrderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/plusSugarButton"
-        android:layout_below="@+id/coffeeRadioGroup"
+        android:text="Order"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:text="0"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        android:layout_toStartOf="@+id/plusSugarButton"
-        android:id="@+id/sugarCountTextView"
-        android:layout_alignBottom="@+id/plusSugarButton"
-        android:layout_alignTop="@+id/plusSugarButton"
-        android:gravity="center"
-        />
-
-    <Button
-        android:text="-"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView7"
-        android:layout_toStartOf="@+id/sugarCountTextView"
-        android:id="@+id/minusSugarButton" />
-
-    <Button
-        android:text="+"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/plusSugarButton"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/plusCreamButton" />
-
-    <TextView
-        android:text="0"
-        android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/plusCreamButton"
-        android:layout_alignTop="@+id/plusCreamButton"
-        android:layout_toStartOf="@+id/plusCreamButton"
-        android:gravity="center"
-        android:id="@+id/creamCountTextView" />
-
-    <Button
-        android:text="-"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/minusSugarButton"
-        android:layout_toStartOf="@+id/creamCountTextView"
-        android:id="@+id/minusCreamButton" />
-
-    <TextView
-        android:text="Creams"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:id="@+id/textView10"
-        android:layout_below="@+id/textView8"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="Size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_below="@+id/minusCreamButton"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView12"
-        android:layout_alignEnd="@+id/textView7" />
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/plusCreamButton"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/sizeRadioGroup"
-        android:layout_alignStart="@+id/minusCreamButton">
-
-        <RadioButton
-            android:text="Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/smallRadioButton"
-            android:layout_weight="1"
-            android:onClick="onSizeChoiceRadioButtonClicked"/>
-
-        <RadioButton
-            android:text="Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/mediumRadioButton"
-            android:layout_weight="1"
-            android:onClick="onSizeChoiceRadioButtonClicked"/>
-
-        <RadioButton
-            android:text="Large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/largeRadioButton"
-            android:layout_weight="1"
-            android:onClick="onSizeChoiceRadioButtonClicked"/>
-    </RadioGroup>
-
-    <Button
-        android:text="Order!"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/submitOrderButton" />
-
-    <TextView
-        android:text="Room Number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:id="@+id/textView13"
-        android:layout_below="@+id/sizeRadioGroup"
-        android:layout_alignEnd="@+id/textView12"
-        android:layout_alignParentStart="true" />
-
     <NumberPicker
+        android:id="@+id/roomNumberPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/submitOrderButton"
-        android:layout_below="@+id/sizeRadioGroup"
-        android:layout_alignParentRight="true"
-        android:id="@+id/roomNumberPicker" />
+        android:layout_alignBottom="@+id/textView13"
+        android:layout_alignTop="@+id/largeCoffeeButton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/creamCountTextView" />
 
 </RelativeLayout>

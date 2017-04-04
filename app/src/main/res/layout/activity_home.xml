@@ -9,50 +9,61 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/lightBackground"
     tools:context="com.example.nickpellegrino.smartcoffee.HomeActivity">
 
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/truck"
         android:id="@+id/statusButton"
-        android:layout_below="@+id/newOrderButton"
-        android:layout_alignEnd="@+id/newOrderButton" />
-
-    <ImageButton
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/time"
+        android:layout_marginBottom="76dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/truck"
+        android:layout_above="@+id/button2"
+        android:layout_alignStart="@+id/newOrderButton" />
+
+    <ImageButton
         android:id="@+id/historyButton"
-        android:layout_alignTop="@+id/newOrderButton"
-        android:layout_alignEnd="@+id/profileButton"
-        android:layout_toEndOf="@+id/statusButton"
-        android:layout_above="@+id/statusButton" />
-
-    <ImageButton
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/coffee"
-        android:id="@+id/newOrderButton"
-        android:layout_marginTop="89dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/imageButton5"
-        android:layout_marginEnd="30dp" />
+        android:layout_alignTop="@+id/newOrderButton"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/statusButton"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/clock" />
 
     <ImageButton
+        android:id="@+id/newOrderButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginStart="63dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/coffee"
+        android:layout_above="@+id/statusButton"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:id="@+id/profileButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/historyButton"
+        android:layout_alignTop="@+id/statusButton"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/user" />
+
+    <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_add"
-        android:layout_marginBottom="59dp"
-        android:id="@+id/imageButton5"
+        android:layout_alignEnd="@+id/profileButton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/statusButton"
+        android:layout_marginBottom="40dp"
+        android:text="Re-Order" />
 
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/user"
-        android:id="@+id/profileButton"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/statusButton" />
 </RelativeLayout>
