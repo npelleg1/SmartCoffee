@@ -45,12 +45,14 @@ public class HomeActivity extends AppCompatActivity {
                 // Perform action on click
             }
         });
-
-        final ImageButton imageButton5 = (ImageButton) findViewById(R.id.imageButton5);
-        imageButton5.setOnClickListener(new View.OnClickListener() {
+        /*
+        final Button reOrderButton = (Button) findViewById(R.id.reOrderButton);
+        reOrderButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
             }
         });
+        */
+
     }
 }

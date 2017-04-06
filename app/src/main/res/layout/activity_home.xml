@@ -5,65 +5,128 @@
     android:id="@+id/activity_order"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
     android:background="@color/lightBackground"
     tools:context="com.example.nickpellegrino.smartcoffee.HomeActivity">
 
-    <ImageButton
-        android:id="@+id/statusButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="76dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/truck"
-        android:layout_above="@+id/button2"
-        android:layout_alignStart="@+id/newOrderButton" />
 
-    <ImageButton
-        android:id="@+id/historyButton"
+    <FrameLayout
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignTop="@+id/newOrderButton"
-        android:layout_marginStart="15dp"
-        android:layout_toEndOf="@+id/statusButton"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/clock" />
+        android:layout_height="200dp"
+        android:background="@drawable/apb"
+        android:id="@+id/frameLayout2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
 
-    <ImageButton
-        android:id="@+id/newOrderButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="28dp"
-        android:layout_marginStart="63dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/coffee"
-        android:layout_above="@+id/statusButton"
-        android:layout_alignParentStart="true" />
+    </FrameLayout>
 
-    <ImageButton
-        android:id="@+id/profileButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignStart="@+id/historyButton"
-        android:layout_alignTop="@+id/statusButton"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/user" />
-
-    <Button
-        android:id="@+id/button2"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/profileButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/statusButton"
-        android:layout_marginBottom="40dp"
-        android:text="Re-Order" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/frameLayout2"
+        android:id="@+id/relativeLayout3">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="fill_parent"
+            android:layout_height="5dip"
+            android:background="@drawable/drop_shadow"></View>
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView24"
+            android:layout_weight="1"
+            android:text="Mesage goes here" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:text="Order Now"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_alignParentStart="true"
+        >
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="fill_parent"
+            android:layout_height="5dip"
+            android:background="@drawable/rise_shadow"></View>
+
+        <ImageButton
+            android:id="@+id/historyButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/clock"
+            android:layout_marginTop="27dp"
+            android:layout_below="@+id/view2"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/reOrderButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Re-Order"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/profileButton"
+            android:layout_alignEnd="@+id/newOrderButton"
+            android:layout_alignStart="@+id/profileButton" />
+
+        <ImageButton
+            android:id="@+id/profileButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/user"
+            android:layout_alignTop="@+id/historyButton"
+            android:layout_toEndOf="@+id/historyButton"
+            android:layout_marginStart="19dp" />
+
+        <ImageButton
+            android:id="@+id/statusButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/truck"
+            android:layout_alignTop="@+id/newOrderButton"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="19dp" />
+
+        <ImageButton
+            android:id="@+id/newOrderButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/coffee"
+            android:layout_marginStart="22dp"
+            android:layout_alignTop="@+id/profileButton"
+            android:layout_toEndOf="@+id/profileButton" />
+    </RelativeLayout>
 
 </RelativeLayout>
