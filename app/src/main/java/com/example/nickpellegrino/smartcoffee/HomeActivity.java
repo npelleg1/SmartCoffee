@@ -42,17 +42,11 @@ public class HomeActivity extends AppCompatActivity {
         final ImageButton profileButton = (ImageButton) findViewById(R.id.profileButton);
         profileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action on click
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                intent.putExtra("UserID", userID);
+                startActivity(intent);
             }
         });
-        /*
-        final Button reOrderButton = (Button) findViewById(R.id.reOrderButton);
-        reOrderButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Perform action on click
-            }
-        });
-        */
 
     }
 }
