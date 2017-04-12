@@ -17,6 +17,10 @@ public class CoffeeOrder {
     public String sugarKind; // splenda, equal, regular
     public String creamKind; // A, B, C
 
+    public CoffeeOrder(){
+
+    }
+
     public CoffeeOrder(String coffeeOrder, String coffeeSize, String classroom, int sugars, int creams, String userID, String sugarKind, String creamKind){
         this.coffeeOrder = coffeeOrder;
         this.coffeeSize = coffeeSize;
