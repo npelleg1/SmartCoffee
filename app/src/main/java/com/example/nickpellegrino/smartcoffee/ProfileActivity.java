@@ -67,6 +67,7 @@ public class ProfileActivity extends AppCompatActivity {
                     myRef.child(userID).setValue(newOrder);
                     Toast.makeText(getApplicationContext(), "Your Preferences Have Been Saved!", Toast.LENGTH_SHORT).show();
                     Intent intent2 = new Intent(getApplicationContext(), HomeActivity.class);
+                    intent2.putExtra("UserID", userID);
                     startActivity(intent2);
                 }
             }

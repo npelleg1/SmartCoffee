@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 public class HomeActivity extends AppCompatActivity {
@@ -43,6 +44,15 @@ public class HomeActivity extends AppCompatActivity {
         profileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                intent.putExtra("UserID", userID);
+                startActivity(intent);
+            }
+        });
+
+        final Button quickOrderButton = (Button) findViewById(R.id.quickOrderButton);
+        quickOrderButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick (View v){
+                Intent intent = new Intent(getApplicationContext(), QuickOrderActivity.class);
                 intent.putExtra("UserID", userID);
                 startActivity(intent);
             }
