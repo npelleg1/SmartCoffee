@@ -36,11 +36,12 @@
         android:id="@+id/splendaSugarButton"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/sugar"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/textView4"
-        android:layout_alignParentStart="true" />
+        android:background="@null"
+        android:onClick="onSugarChoiceButtonClicked"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/sugar" />
 
     <ImageButton
         android:id="@+id/equalSugarButton"
@@ -49,6 +50,7 @@
         android:layout_alignTop="@+id/splendaSugarButton"
         android:layout_toEndOf="@+id/splendaSugarButton"
         android:background="@null"
+        android:onClick="onSugarChoiceButtonClicked"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/sugar" />
 
@@ -103,6 +105,7 @@
         android:layout_below="@+id/textView4"
         android:layout_toEndOf="@+id/equalSugarButton"
         android:background="@null"
+        android:onClick="onSugarChoiceButtonClicked"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/sugar" />
 
@@ -196,6 +199,7 @@
         android:layout_alignTop="@+id/creamBButton"
         android:layout_toEndOf="@+id/creamBButton"
         android:background="@null"
+        android:onClick="onCreamChoiceButtonClicked"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/creamcup" />
 
@@ -206,6 +210,7 @@
         android:layout_alignTop="@+id/creamAButton"
         android:layout_toEndOf="@+id/creamAButton"
         android:background="@null"
+        android:onClick="onCreamChoiceButtonClicked"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/creamcup" />
 
@@ -217,6 +222,7 @@
         android:layout_below="@+id/textView5"
         android:layout_marginTop="11dp"
         android:background="@null"
+        android:onClick="onCreamChoiceButtonClicked"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/creamcup" />
 

@@ -85,14 +85,14 @@
             android:layout_alignParentStart="true" />
 
         <Button
-            android:id="@+id/reOrderButton"
+            android:id="@+id/quickOrderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Re-Order"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/profileButton"
             android:layout_alignEnd="@+id/newOrderButton"
-            android:layout_alignStart="@+id/profileButton" />
+            android:layout_alignStart="@+id/profileButton"
+            android:layout_below="@+id/profileButton"
+            android:layout_marginTop="15dp"
+            android:text="Quick Order" />
 
         <ImageButton
             android:id="@+id/profileButton"

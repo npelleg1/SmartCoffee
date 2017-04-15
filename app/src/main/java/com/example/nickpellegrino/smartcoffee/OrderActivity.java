@@ -25,8 +25,6 @@ public class OrderActivity extends AppCompatActivity {
     int creams = 0;
     FirebaseDatabase database;
 
-    ImageButton mediumCoffeeSizeButton;
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +34,6 @@ public class OrderActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         userID = intent.getStringExtra("UserID");
-
-        mediumCoffeeSizeButton = (ImageButton)findViewById(R.id.mediumCoffeeButton);
-
 
 /*******************SUGAR COUNT LOGIC***************************************************************/
         final TextView sugarCountTextView = (TextView) findViewById(R.id.sugarCountTextView);
@@ -105,7 +100,7 @@ public class OrderActivity extends AppCompatActivity {
                 else{
                     classroom = roomPicker.getDisplayedValues()[roomPicker.getValue()];
                     DatabaseReference myRef = database.getReference("Orders");
-                    CoffeeOrder newOrder = new CoffeeOrder(coffeeOrder, coffeeSize, classroom, sugars, creams, userID);
+                    CoffeeOrder newOrder = new CoffeeOrder(coffeeOrder, coffeeSize, classroom, sugars, creams, userID, sugarType, creamType);
                     myRef.child(Integer.toString(newOrder.orderID)).setValue(newOrder);
                     Toast.makeText(getApplicationContext(), "Your Order has been Placed!", Toast.LENGTH_SHORT).show();
                     Intent intent2 = new Intent(getApplicationContext(), HomeActivity.class);
@@ -118,7 +113,6 @@ public class OrderActivity extends AppCompatActivity {
 
 /***********************LOGIC FOR COFFEE SELECTION BUTTONS************************************/
     public void onCoffeeChoiceButtonClicked(View view) {
-        //boolean checked = ((RadioButton) view).isChecked();
         switch (view.getId()) {
             case R.id.morningBlendButton:
                 coffeeOrder = "Morning Blend";
@@ -132,7 +126,6 @@ public class OrderActivity extends AppCompatActivity {
 
 /**************LOGIC FOR COFFEE SIZE BUTTONS**************************************************/
     public void onSizeChoiceButtonClicked(View view){
-        //boolean checked = ((RadioButton) view).isChecked();
         switch(view.getId()){
             case R.id.mediumCoffeeButton:
                 coffeeSize = "Medium";
@@ -146,7 +139,6 @@ public class OrderActivity extends AppCompatActivity {
 
 /**************LOGIC FOR SUGAR TYPE BUTTONS**************************************************/
     public void onSugarChoiceButtonClicked(View view){
-        //boolean checked = ((RadioButton) view).isChecked();
         switch(view.getId()){
             case R.id.splendaSugarButton:
                 sugarType = "Splenda";
@@ -163,7 +155,6 @@ public class OrderActivity extends AppCompatActivity {
 
 /**************LOGIC FOR CREAM TYPE BUTTONS**************************************************/
     public void onCreamChoiceButtonClicked(View view){
-        //boolean checked = ((RadioButton) view).isChecked();
         switch(view.getId()){
             case R.id.creamAButton:
                 creamType = "A";

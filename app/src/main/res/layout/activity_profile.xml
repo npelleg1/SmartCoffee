@@ -13,108 +13,48 @@
     tools:context="com.example.nickpellegrino.smartcoffee.ProfileActivity">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="Profile Details"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:text="Username" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_toEndOf="@+id/textView8"
-        android:text="Jorge" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView8"
-        android:text="Email" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView8"
-        android:layout_toEndOf="@+id/textView15"
-        android:text="email@emial.com" />
-
-    <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Quick-Order Preference"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:layout_below="@+id/editText"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:layout_alignBaseline="@+id/editText"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_toStartOf="@+id/editText" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView16"
-        android:layout_toEndOf="@+id/textView8"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="password"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:text="Coffee Type"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/textView17"
-        android:layout_marginTop="11dp"
-        android:text="Coffe Type"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:layout_centerHorizontal="true" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/coffeeFlavorRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView19"
-        android:layout_alignParentStart="true">
+        android:layout_centerHorizontal="true">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/morningBlendRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView19"
-            android:layout_toEndOf="@+id/radioGroup"
+            android:layout_toEndOf="@+id/coffeeFlavorRadioGroup"
+            android:onClick="onCoffeeTypeButtonClicked"
             android:text="Morning Blend" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/hazelnutRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/radioButton"
+            android:layout_alignEnd="@+id/morningBlendRadioButton"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:onClick="onCoffeeTypeButtonClicked"
             android:text="Hazelnut" />
     </RadioGroup>
 
@@ -122,49 +62,50 @@
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/radioGroup"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/radioGroup"
+        android:layout_below="@+id/coffeeFlavorRadioGroup"
         android:layout_marginTop="12dp"
         android:text="Sugar"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_alignEnd="@+id/sizeRadioGroup" />
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroup2"
+        android:id="@+id/sugarKindRadioGroup"
         android:layout_below="@+id/textView20"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/textView20">
+        android:layout_toStartOf="@+id/creamKindRadioGroup">
 
         <RadioButton
-            android:id="@+id/radioButton13"
-            android:layout_width="wrap_content"
+            android:id="@+id/equalRadioButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="onSugarChoiceButtonClicked"
             android:text="Equal" />
 
         <RadioButton
-            android:id="@+id/radioButton12"
-            android:layout_width="wrap_content"
+            android:id="@+id/regularRadioButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="onSugarChoiceButtonClicked"
             android:text="Regular" />
 
         <RadioButton
-            android:id="@+id/radioButton5"
+            android:id="@+id/splendaRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/radioButton4"
-            android:layout_toEndOf="@+id/radioGroup3"
+            android:layout_toEndOf="@+id/creamKindRadioGroup"
             android:layout_weight="1"
+            android:onClick="onSugarChoiceButtonClicked"
             android:text="Splenda" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/sugarEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/radioGroup2"
+            android:layout_alignEnd="@+id/sugarKindRadioGroup"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:ems="10"
@@ -174,56 +115,47 @@
 
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView20"
-        android:layout_alignBottom="@+id/textView20"
-        android:layout_toEndOf="@+id/textView16"
-        android:text="Cream"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroup3"
-        android:layout_below="@+id/textView21"
-        android:layout_alignStart="@+id/textView21">
+        android:id="@+id/creamKindRadioGroup"
+        android:layout_below="@+id/textView20"
+        android:layout_alignStart="@+id/coffeeFlavorRadioGroup"
+        android:layout_alignEnd="@+id/coffeeFlavorRadioGroup">
 
         <RadioButton
-            android:id="@+id/radioButton9"
-            android:layout_width="wrap_content"
+            android:id="@+id/creamARadioButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/radioGroup2"
-            android:layout_weight="1"
+            android:layout_below="@+id/sugarKindRadioGroup"
+            android:onClick="onCreamKindButtonClicked"
             android:text="Cream A" />
 
         <RadioButton
-            android:id="@+id/radioButton8"
+            android:id="@+id/creamBRadioButton"
             style="@style/Widget.AppCompat.CompoundButton.RadioButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/radioButton9"
-            android:layout_below="@+id/radioButton9"
-            android:layout_weight="1"
+            android:layout_alignEnd="@+id/creamARadioButton"
+            android:layout_below="@+id/creamARadioButton"
+            android:onClick="onCreamKindButtonClicked"
             android:text="Cream B" />
 
         <RadioButton
-            android:id="@+id/radioButton7"
-            android:layout_width="wrap_content"
+            android:id="@+id/creamCRadioButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/radioButton8"
-            android:layout_below="@+id/radioButton8"
-            android:layout_weight="1"
+            android:layout_alignStart="@+id/creamBRadioButton"
+            android:layout_below="@+id/creamBRadioButton"
+            android:onClick="onCreamKindButtonClicked"
             android:text="Cream C" />
 
         <EditText
-            android:id="@+id/editText5"
-            android:layout_width="92dp"
+            android:id="@+id/creamEditText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/radioGroup2"
+            android:layout_alignEnd="@+id/sugarKindRadioGroup"
             android:layout_alignParentBottom="true"
             android:ems="10"
             android:inputType="textPersonName"
@@ -237,21 +169,24 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView22"
         android:layout_below="@+id/textView22"
-        android:id="@+id/radioGroup4">
+        android:id="@+id/sizeRadioGroup"
+        android:layout_toStartOf="@+id/coffeeFlavorRadioGroup">
 
         <RadioButton
-            android:id="@+id/radioButton11"
+            android:id="@+id/mediumSizeRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onSizeChoiceButtonClicked"
             android:text="medium" />
 
         <RadioButton
-            android:id="@+id/radioButton10"
+            android:id="@+id/largeSizeRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView22"
             android:layout_below="@+id/textView22"
+            android:onClick="onSizeChoiceButtonClicked"
             android:text="large" />
     </RadioGroup>
 
@@ -259,36 +194,47 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView19"
         android:layout_alignBottom="@+id/textView19"
         android:layout_alignStart="@+id/textView21"
         android:text="Size"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/textView17" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/radioGroup4"
+        android:layout_above="@+id/roomNumberPicker"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="31dp"
         android:text="Room"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/textView17" />
 
     <NumberPicker
-        android:id="@+id/numberPicker"
+        android:id="@+id/roomNumberPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/radioGroup4"
+        android:layout_below="@+id/sizeRadioGroup"
         android:layout_alignStart="@+id/textView23" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/savePreferencesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Safe Preferences"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/radioGroup3" />
+        android:text="Save Preferences" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sugarKindRadioGroup"
+        android:layout_alignEnd="@+id/creamKindRadioGroup"
+        android:layout_alignTop="@+id/textView20"
+        android:layout_toEndOf="@+id/textView20"
+        android:text="Cream Kind" />
 
 </RelativeLayout>
