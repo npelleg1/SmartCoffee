@@ -4,11 +4,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/login_img"
         android:label="@string/app_name"
+        android:logo="@drawable/login_img"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+
+        <activity android:name=".LoginActivity"> <!-- <user-permission android:name="android.permission.READ_CONTACTS"/>change this back to login activity -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,7 +20,10 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".OrderActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".QuickOrderActivity"></activity>
+        <activity android:name=".QuickOrderActivity" />
+        <activity android:name=".VendorHomeActivity" >
+            
+        </activity>
     </application>
 
 </manifest>

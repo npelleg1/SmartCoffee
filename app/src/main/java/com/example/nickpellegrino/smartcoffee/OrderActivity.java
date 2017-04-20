@@ -25,6 +25,11 @@ public class OrderActivity extends AppCompatActivity {
     int creams = 0;
     FirebaseDatabase database;
 
+
+    //ImageButton morining = (ImageButton) findViewById(R.id.morningBlendButton);
+    //ImageButton hazelnut = (ImageButton) findViewById(R.id.hazelnutButton);
+
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,11 +118,18 @@ public class OrderActivity extends AppCompatActivity {
 
 /***********************LOGIC FOR COFFEE SELECTION BUTTONS************************************/
     public void onCoffeeChoiceButtonClicked(View view) {
+        //Drawable dr = ResourcesCompat.getDrawable(getResources(), R.drawable.button_pressed, null);
         switch (view.getId()) {
             case R.id.morningBlendButton:
+                //dr.setColorFilter(Color.parseColor("#FF000"), PorterDuff.Mode.SRC_ATOP);
+                //morining.setBackgroundResource(R.drawable.button_pressed);
+                //morining.setBackground(dr);
                 coffeeOrder = "Morning Blend";
                 break;
             case R.id.hazelnutButton:
+                //dr.setColorFilter(Color.parseColor("#FF000"), PorterDuff.Mode.SRC_ATOP);
+                //hazelnut.setBackgroundResource(R.drawable.button_pressed);
+                //hazelnut.setBackground(dr);
                 coffeeOrder = "Hazelnut";
                 break;
         }

@@ -196,23 +196,23 @@
         android:id="@+id/creamCButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_alignTop="@+id/creamBButton"
-        android:layout_toEndOf="@+id/creamBButton"
         android:background="@null"
         android:onClick="onCreamChoiceButtonClicked"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/creamcup" />
+        app:srcCompat="@drawable/creamcup"
+        android:layout_alignTop="@+id/creamBButton"
+        android:layout_toEndOf="@+id/textView6" />
 
     <ImageButton
         android:id="@+id/creamBButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_alignTop="@+id/creamAButton"
-        android:layout_toEndOf="@+id/creamAButton"
         android:background="@null"
         android:onClick="onCreamChoiceButtonClicked"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/creamcup" />
+        app:srcCompat="@drawable/creamcup"
+        android:layout_alignTop="@+id/creamAButton"
+        android:layout_toEndOf="@+id/textView5" />
 
     <ImageButton
         android:id="@+id/creamAButton"
@@ -261,24 +261,24 @@
         android:id="@+id/mediumCoffeeButton"
         android:layout_width="50dp"
         android:layout_height="70dp"
+        android:layout_alignBottom="@+id/largeCoffeeButton"
+        android:layout_alignParentStart="true"
         android:background="@null"
         android:onClick="onSizeChoiceButtonClicked"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/coffe_2"
-        android:layout_alignBottom="@+id/largeCoffeeButton"
-        android:layout_alignParentStart="true" />
+        app:srcCompat="@drawable/coffee" />
 
     <ImageButton
         android:id="@+id/largeCoffeeButton"
         android:layout_width="60dp"
         android:layout_height="90dp"
+        android:layout_below="@+id/textView12"
         android:layout_marginTop="12dp"
+        android:layout_toEndOf="@+id/mediumCoffeeButton"
         android:background="@null"
         android:onClick="onSizeChoiceButtonClicked"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/coffe_2"
-        android:layout_below="@+id/textView12"
-        android:layout_toEndOf="@+id/mediumCoffeeButton" />
+        app:srcCompat="@drawable/coffee" />
 
     <TextView
         android:id="@+id/textView13"
