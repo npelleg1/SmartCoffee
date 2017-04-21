@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nickpellegrino.smartcoffee">
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -21,9 +22,7 @@
         <activity android:name=".OrderActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".QuickOrderActivity" />
-        <activity android:name=".VendorHomeActivity" >
-            
-        </activity>
+        <activity android:name=".VendorHomeActivity" />
     </application>
 
 </manifest>
