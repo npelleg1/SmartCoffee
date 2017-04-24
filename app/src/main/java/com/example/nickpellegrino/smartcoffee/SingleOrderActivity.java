@@ -14,8 +14,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SingleOrderActivity extends AppCompatActivity {
 
-    TextView orderID_tv, classroom_tv, coffeeOrder_tv, creamKind_tv, creams_tv, sugarKind_tv, sugars_tv;
-    String userID, orderID, classroom, coffeeOrder, creamKind, creams, sugarKind, sugars;
+    TextView orderID_tv, classroom_tv, coffeeOrder_tv, coffeeSize_tv, creamKind_tv, creams_tv, sugarKind_tv, sugars_tv;
+    String userID, orderID, classroom, coffeeOrder, coffeeSize, creamKind, creams, sugarKind, sugars;
     String newStatus;
     FirebaseDatabase database;
 
@@ -30,6 +30,7 @@ public class SingleOrderActivity extends AppCompatActivity {
         orderID = i.getStringExtra("orderID");
         classroom = i.getStringExtra("classroom");
         coffeeOrder = i.getStringExtra("coffeeOrder");
+        coffeeSize = i.getStringExtra("coffeeSize");
         creamKind = i.getStringExtra("creamKind");
         creams = i.getStringExtra("creams");
         sugarKind = i.getStringExtra("sugarKind");
@@ -38,6 +39,7 @@ public class SingleOrderActivity extends AppCompatActivity {
         orderID_tv = (TextView) findViewById(R.id.orderID);
         classroom_tv = (TextView) findViewById(R.id.classroom);
         coffeeOrder_tv = (TextView) findViewById(R.id.coffeeType);
+        coffeeSize_tv = (TextView)findViewById(R.id.coffeeSize);
         creamKind_tv = (TextView) findViewById(R.id.creamType);
         creams_tv = (TextView) findViewById(R.id.creams);
         sugarKind_tv = (TextView) findViewById(R.id.sugarType);
@@ -46,6 +48,7 @@ public class SingleOrderActivity extends AppCompatActivity {
         orderID_tv.setText(orderID);
         classroom_tv.setText(classroom);
         coffeeOrder_tv.setText(coffeeOrder);
+        coffeeSize_tv.setText(coffeeSize);
         creams_tv.setText(creams);
         sugars_tv.setText(sugars);
         RadioButton pendingRB = (RadioButton)findViewById(R.id.pendingRadioButton);

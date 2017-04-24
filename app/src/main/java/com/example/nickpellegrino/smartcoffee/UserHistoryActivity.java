@@ -110,7 +110,7 @@ public class UserHistoryActivity extends AppCompatActivity {
                             i.putExtra("userID", orders.get(position).userID);
                             i.putExtra("orderID", String.valueOf(orders.get(position).orderID));
                             i.putExtra("classroom", orders.get(position).classroom);
-                            i.putExtra("coffeOrder", orders.get(position).coffeeOrder);
+                            i.putExtra("coffeeOrder", orders.get(position).coffeeOrder);
                             i.putExtra("coffeeSize", orders.get(position).coffeeSize);
                             i.putExtra("creamKind", orders.get(position).creamKind);
                             i.putExtra("creams", String.valueOf(orders.get(position).creams));
