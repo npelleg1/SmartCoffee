@@ -22,7 +22,8 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".QuickOrderActivity" />
         <activity android:name=".VendorHomeActivity" />
-        <activity android:name=".SingleOrderActivity"/>
+        <activity android:name=".SingleOrderActivity" />
+        <activity android:name=".UserHistoryActivity" />
     </application>
 
 </manifest>

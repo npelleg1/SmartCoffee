@@ -1,6 +1,5 @@
 package com.example.nickpellegrino.smartcoffee;
 
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -24,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class VendorHomeActivity extends AppCompatActivity {
+public class UserHistoryActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
     ListView myListView;
@@ -34,20 +33,26 @@ public class VendorHomeActivity extends AppCompatActivity {
 
     SimpleAdapter simple_adapter;
     ArrayList<Map<String, String>> list_map = new ArrayList<Map<String, String>>();
-    String[] from = { "orderID", "roomNumber"};// "coffeeType", "coffeeSize", "sugarType", "sugars", "creamType", "creams"  };
-    int[] to = { R.id.orderID, R.id.roomNumber}; // R.id.coffeeType, R.id.coffeeSize, R.id.sugarType, R.id.sugars, R.id.creamType, R.id.creams };
+    String[] from = { "orderID", "roomNumber" };
+    int[] to = { R.id.orderID, R.id.roomNumber };
 
     ProgressBar spinner;    // This is the Adapter being used to display the list's data
+    String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_home);
 
-        Log.e("Vendor Home ", "STARTING VENDOR HOME");
+        Log.e("User History ", "STARTING USER HISTORY");
+
         database = FirebaseDatabase.getInstance();
         myListView = (ListView) findViewById(R.id.listView);
         //myRef = database.getReference().child("Orders");
+        Intent i = getIntent();
+        userID = i.getStringExtra("userID");
+        Log.e("User History ", "userID = " + userID);
+
         new RemoteDataTask().execute();
 
     }
@@ -73,28 +78,21 @@ public class VendorHomeActivity extends AppCompatActivity {
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    Log.e("Vendor Home ","data snapshot : " + dataSnapshot.getChildren().toString());
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                        orders.add(postSnapshot.getValue(CoffeeOrder.class));
+                        Log.e("User History ", "postSnapshot.userID  = " + postSnapshot.getValue(CoffeeOrder.class).userID );
+                        if (postSnapshot.getValue(CoffeeOrder.class).userID.equals(userID)) {
+                            orders.add(postSnapshot.getValue(CoffeeOrder.class));
+                        }
                     }
-                    Log.e("Vendor Home ","orders : " + orders.size() );
-                    Log.e("Vendor Home", "After orders.size() ? ");
-
 
                     // Pass the results into an ArrayAdapter
                     adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.listview_item);
 
-
                     for (CoffeeOrder order : orders) {
-                        adapter.add(String.valueOf(order.orderID) + " " + String.valueOf(order.classroom));
-
-                        //
                         HashMap<String, String> item = new HashMap<String, String>();
                         item.put("orderID", String.valueOf(order.orderID));
                         item.put("roomNumber", order.classroom);
                         list_map.add(item);
-
-                        Log.e("Vendor Home ","order : " + String.valueOf(order.orderID) );
                     }
 
                     simple_adapter = new SimpleAdapter(getApplicationContext(), list_map, R.layout.simple_listview_item, from, to);
@@ -108,25 +106,16 @@ public class VendorHomeActivity extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                        Intent i = new Intent(VendorHomeActivity.this, SingleOrderActivity.class);
+                            Intent i = new Intent(UserHistoryActivity.this, SingleOrderActivity.class);
                             i.putExtra("userID", orders.get(position).userID);
-                            Log.e("Vendor Home ","userID : " + orders.get(position).userID );
                             i.putExtra("orderID", String.valueOf(orders.get(position).orderID));
-                            Log.e("Vendor Home ","orderID : " + String.valueOf(orders.get(position).orderID));
                             i.putExtra("classroom", orders.get(position).classroom);
-                            Log.e("Vendor Home ","classroom : " + orders.get(position).classroom);
                             i.putExtra("coffeOrder", orders.get(position).coffeeOrder);
-                            Log.e("Vendor Home ","coffeOrder : " + orders.get(position).coffeeOrder);
                             i.putExtra("coffeeSize", orders.get(position).coffeeSize);
-                            Log.e("Vendor Home ","coffeeSize : " + orders.get(position).coffeeSize);
                             i.putExtra("creamKind", orders.get(position).creamKind);
-                            Log.e("Vendor Home ","creamKind : " + orders.get(position).creamKind);
                             i.putExtra("creams", String.valueOf(orders.get(position).creams));
-                            Log.e("Vendor Home ","creams : " + String.valueOf(orders.get(position).creams));
-                            i.putExtra("sugarKind", String.valueOf(orders.get(position).creams));
-                            Log.e("Vendor Home ","sugarKind : " + orders.get(position).sugarKind);
+                            i.putExtra("sugarKind", orders.get(position).sugarKind);
                             i.putExtra("sugars", String.valueOf(orders.get(position).sugars));
-                            Log.e("Vendor Home ","sugars : " + String.valueOf(orders.get(position).sugars));
                             startActivity(i);
 
                         }
@@ -134,7 +123,6 @@ public class VendorHomeActivity extends AppCompatActivity {
 
                     // Close the progressdialog
                     spinner.setVisibility(View.GONE);
-                    Log.e("Vendor Home", "View Gone!");
 
                 }
                 @Override

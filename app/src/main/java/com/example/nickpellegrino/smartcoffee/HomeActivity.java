@@ -3,6 +3,7 @@ package com.example.nickpellegrino.smartcoffee;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -29,8 +30,9 @@ public class HomeActivity extends AppCompatActivity {
         final ImageButton historyButton = (ImageButton) findViewById(R.id.historyButton);
         historyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), VendorHomeActivity.class);
-                intent.putExtra("UserID", userID);
+                Intent intent = new Intent(getApplicationContext(), UserHistoryActivity.class);
+                intent.putExtra("userID", userID);
+                Log.e("User Home", "user ID = " + userID);
                 startActivity(intent);
             }
         });
@@ -38,19 +40,14 @@ public class HomeActivity extends AppCompatActivity {
         final ImageButton statusButton = (ImageButton) findViewById(R.id.statusButton);
         statusButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action on click
+                Intent intent = new Intent(getApplicationContext(), VendorHomeActivity.class);
+                startActivity(intent);
             }
         });
 
         final ImageButton profileButton = (ImageButton) findViewById(R.id.profileButton);
         profileButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                /*
-                Drawable dr = ResourcesCompat.getDrawable(getResources(), R.drawable.button_pressed, null);
-                dr.setColorFilter(Color.parseColor("#FF000"), PorterDuff.Mode.SRC_ATOP);
-                profileButton.setBackgroundResource(R.drawable.button_pressed);
-                profileButton.setBackground(dr);
-                */
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                 intent.putExtra("UserID", userID);
                 startActivity(intent);
