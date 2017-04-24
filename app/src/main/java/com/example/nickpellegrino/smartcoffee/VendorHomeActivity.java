@@ -123,7 +123,7 @@ public class VendorHomeActivity extends AppCompatActivity {
                             Log.e("Vendor Home ","creamKind : " + orders.get(position).creamKind);
                             i.putExtra("creams", String.valueOf(orders.get(position).creams));
                             Log.e("Vendor Home ","creams : " + String.valueOf(orders.get(position).creams));
-                            i.putExtra("sugarKind", String.valueOf(orders.get(position).creams));
+                            i.putExtra("sugarKind", orders.get(position).sugarKind);
                             Log.e("Vendor Home ","sugarKind : " + orders.get(position).sugarKind);
                             i.putExtra("sugars", String.valueOf(orders.get(position).sugars));
                             Log.e("Vendor Home ","sugars : " + String.valueOf(orders.get(position).sugars));
