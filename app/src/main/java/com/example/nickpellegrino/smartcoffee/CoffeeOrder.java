@@ -16,6 +16,7 @@ public class CoffeeOrder {
     public String userID; // bunchofjunk string
     public String sugarKind; // splenda, equal, regular
     public String creamKind; // A, B, C
+    public String status;
 
     public CoffeeOrder(){
 
@@ -32,5 +33,6 @@ public class CoffeeOrder {
         this.userID = userID;
         this.sugarKind = sugarKind;
         this.creamKind = creamKind;
+        this.status = "Pending";
     }
 }

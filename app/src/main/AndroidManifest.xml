@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nickpellegrino.smartcoffee">
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -10,7 +9,6 @@
         android:logo="@drawable/login_img"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".LoginActivity"> <!-- <user-permission android:name="android.permission.READ_CONTACTS"/>change this back to login activity -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,11 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        s
         <activity android:name=".HomeActivity" />
         <activity android:name=".OrderActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".QuickOrderActivity" />
         <activity android:name=".VendorHomeActivity" />
+        <activity android:name=".SingleOrderActivity"/>
     </application>
 
 </manifest>
