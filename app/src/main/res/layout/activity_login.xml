@@ -33,15 +33,6 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="Log In"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/signUpButton"
-        android:layout_alignStart="@+id/signUpButton"
-        android:id="@+id/logInButton"
-        android:layout_alignEnd="@+id/signUpButton" />
-
-    <Button
         android:text="Sign Up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
