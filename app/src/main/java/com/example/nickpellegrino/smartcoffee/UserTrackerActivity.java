@@ -17,12 +17,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UserHistoryActivity extends AppCompatActivity {
+public class UserTrackerActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
     ListView myListView;
@@ -32,18 +35,21 @@ public class UserHistoryActivity extends AppCompatActivity {
 
     SimpleAdapter simple_adapter;
     ArrayList<Map<String, String>> list_map = new ArrayList<Map<String, String>>();
-    String[] from = { "orderID", "roomNumber"};
-    int[] to = { R.id.orderID, R.id.roomNumber };
+    String[] from = { "orderID", "roomNumber", "dateTime" };
+    int[] to = { R.id.orderID, R.id.roomNumber, R.id.dateTime};
 
     ProgressBar spinner;    // This is the Adapter being used to display the list's data
     String userID;
+
+    Date currDate = new Date();
+    Date orderDate = new Date();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_history);
 
-        Log.e("User History ", "STARTING USER HISTORY");
+        Log.e("User Tracker ", "STARTING USER TRACKER");
 
         database = FirebaseDatabase.getInstance();
         myListView = (ListView) findViewById(R.id.listView);
@@ -74,31 +80,45 @@ public class UserHistoryActivity extends AppCompatActivity {
             myListView = (ListView) findViewById(R.id.listView);
             myRef = database.getReference().child("Orders");
 
+            currDate = new Date();
+            final SimpleDateFormat df = new SimpleDateFormat("E, dd MM yyyy HH:mm:ss");
+            final SimpleDateFormat dfc = new SimpleDateFormat("ddMMyyyy");
+
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
 
-                        //Log.e("User History ", "postSnapshot.userID  = " + postSnapshot.getValue(CoffeeOrder.class).userID );
-                        if (postSnapshot.getValue(CoffeeOrder.class).userID.equals(userID) ) {
-                            orders.add(postSnapshot.getValue(CoffeeOrder.class));
+                        if (postSnapshot.getValue(CoffeeOrder.class).orderedDate != null) {
+                            String dateStr = postSnapshot.getValue(CoffeeOrder.class).orderedDate;
+                            try {
+                                orderDate = df.parse(dateStr);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+
+
+                            Log.e("User History ", "postSnapshot.userID  = " + postSnapshot.getValue(CoffeeOrder.class).userID);
+                            // Also Filter Outon ORders that have yet been delivered
+                            if (postSnapshot.getValue(CoffeeOrder.class).userID.equals(userID) &&
+                                    dfc.format(currDate).equals(dfc.format(orderDate))) {
+                                orders.add(postSnapshot.getValue(CoffeeOrder.class));
+                            }
                         }
                     }
+
                     // Pass the results into an ArrayAdapter
                     adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.listview_item);
-
-                    // Compute Date stuff
-
 
                     for (CoffeeOrder order : orders) {
                         HashMap<String, String> item = new HashMap<String, String>();
                         item.put("orderID", String.valueOf(order.orderID));
                         item.put("roomNumber", order.classroom);
+                        item.put("dateTime", order.orderedDate);
                         list_map.add(item);
                     }
 
-                    simple_adapter = new SimpleAdapter(getApplicationContext(), list_map, R.layout.simple_listview_item, from, to);
+                    simple_adapter = new SimpleAdapter(getApplicationContext(), list_map, R.layout.simple_listview_item_time, from, to);
 
                     // Binds the Adapter to the ListView
                     //myListView.setAdapter(adapter);
@@ -110,7 +130,7 @@ public class UserHistoryActivity extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                            Intent i = new Intent(UserHistoryActivity.this, UserSingleOrderActivity.class);
+                            Intent i = new Intent(UserTrackerActivity.this, UserSingleOrderActivity.class);
                             i.putExtra("userID", orders.get(position).userID);
                             i.putExtra("orderID", String.valueOf(orders.get(position).orderID));
                             i.putExtra("classroom", orders.get(position).classroom);
@@ -125,7 +145,6 @@ public class UserHistoryActivity extends AppCompatActivity {
                         }
                     });
                     */
-
                     // Close the progressdialog
                     spinner.setVisibility(View.GONE);
 

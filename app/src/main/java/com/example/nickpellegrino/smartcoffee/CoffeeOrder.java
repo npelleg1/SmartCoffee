@@ -1,5 +1,8 @@
 package com.example.nickpellegrino.smartcoffee;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -18,8 +21,7 @@ public class CoffeeOrder {
     public String sugarKind; // splenda, equal, regular
     public String creamKind; // A, B, C
     public String status;
-    //public Date postTime;
-    //public Date deliveryTime;
+    public String orderedDate;
 
     public CoffeeOrder(){
 
@@ -37,6 +39,8 @@ public class CoffeeOrder {
         this.sugarKind = sugarKind;
         this.creamKind = creamKind;
         this.status = "Pending";
-        //this.postDate =
+        Date rightNow = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss");
+        this.orderedDate = df.format(rightNow);
     }
 }

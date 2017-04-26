@@ -121,15 +121,9 @@ public class OrderActivity extends AppCompatActivity {
         //Drawable dr = ResourcesCompat.getDrawable(getResources(), R.drawable.button_pressed, null);
         switch (view.getId()) {
             case R.id.morningBlendButton:
-                //dr.setColorFilter(Color.parseColor("#FF000"), PorterDuff.Mode.SRC_ATOP);
-                //morining.setBackgroundResource(R.drawable.button_pressed);
-                //morining.setBackground(dr);
                 coffeeOrder = "Morning Blend";
                 break;
             case R.id.hazelnutButton:
-                //dr.setColorFilter(Color.parseColor("#FF000"), PorterDuff.Mode.SRC_ATOP);
-                //hazelnut.setBackgroundResource(R.drawable.button_pressed);
-                //hazelnut.setBackground(dr);
                 coffeeOrder = "Hazelnut";
                 break;
         }

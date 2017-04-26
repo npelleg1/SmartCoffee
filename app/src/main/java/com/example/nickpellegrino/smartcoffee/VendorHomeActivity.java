@@ -44,7 +44,7 @@ public class VendorHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_home);
 
-        Log.e("Vendor Home ", "STARTING VENDOR HOME");
+        Log.e("Vendor Home ", "STARTING VENDOR HOME WITH CHANGE FOR DEBUG");
         database = FirebaseDatabase.getInstance();
         myListView = (ListView) findViewById(R.id.listView);
         //myRef = database.getReference().child("Orders");
@@ -110,23 +110,14 @@ public class VendorHomeActivity extends AppCompatActivity {
 
                         Intent i = new Intent(VendorHomeActivity.this, SingleOrderActivity.class);
                             i.putExtra("userID", orders.get(position).userID);
-                            Log.e("Vendor Home ","userID : " + orders.get(position).userID );
                             i.putExtra("orderID", String.valueOf(orders.get(position).orderID));
-                            Log.e("Vendor Home ","orderID : " + String.valueOf(orders.get(position).orderID));
                             i.putExtra("classroom", orders.get(position).classroom);
-                            Log.e("Vendor Home ","classroom : " + orders.get(position).classroom);
-                            i.putExtra("coffeOrder", orders.get(position).coffeeOrder);
-                            Log.e("Vendor Home ","coffeOrder : " + orders.get(position).coffeeOrder);
+                            i.putExtra("coffeeOrder", orders.get(position).coffeeOrder);
                             i.putExtra("coffeeSize", orders.get(position).coffeeSize);
-                            Log.e("Vendor Home ","coffeeSize : " + orders.get(position).coffeeSize);
                             i.putExtra("creamKind", orders.get(position).creamKind);
-                            Log.e("Vendor Home ","creamKind : " + orders.get(position).creamKind);
                             i.putExtra("creams", String.valueOf(orders.get(position).creams));
-                            Log.e("Vendor Home ","creams : " + String.valueOf(orders.get(position).creams));
                             i.putExtra("sugarKind", orders.get(position).sugarKind);
-                            Log.e("Vendor Home ","sugarKind : " + orders.get(position).sugarKind);
                             i.putExtra("sugars", String.valueOf(orders.get(position).sugars));
-                            Log.e("Vendor Home ","sugars : " + String.valueOf(orders.get(position).sugars));
                             startActivity(i);
 
                         }

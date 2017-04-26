@@ -106,15 +106,15 @@
             android:layout_marginStart="19dp" />
 
         <ImageButton
-            android:id="@+id/statusButton"
+            android:id="@+id/statuus"
             android:layout_width="70dp"
             android:layout_height="70dp"
+            android:layout_alignTop="@+id/newOrderButton"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/newOrderButton"
             android:background="@null"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/truck"
-            android:layout_alignTop="@+id/newOrderButton"
-            android:layout_toEndOf="@+id/newOrderButton"
-            android:layout_marginStart="20dp" />
+            app:srcCompat="@drawable/truck" />
 
         <ImageButton
             android:id="@+id/newOrderButton"

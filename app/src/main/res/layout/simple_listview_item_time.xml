@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginStart="14dp"
+        android:src="@drawable/login_img"></ImageView>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="fill_parent"
+        android:layout_height="5dip"
+        android:background="@drawable/drop_shadow"></View>
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:text="orderID "
+        android:textStyle="italic"
+        android:layout_above="@+id/textView28"
+        android:layout_toEndOf="@+id/icon" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/orderID"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@+id/orderID"
+        android:text="room# " />
+
+    <TextView
+        android:id="@+id/orderID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ORDERID"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/textView29"
+        android:layout_alignBottom="@+id/textView29"
+        android:layout_toEndOf="@+id/textView29" />
+
+    <TextView
+        android:id="@+id/roomNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView33"
+        android:layout_alignBottom="@+id/textView33"
+        android:layout_toEndOf="@+id/textView33"
+        android:text="ROOM#"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date/Time"
+        android:textStyle="italic"
+        android:layout_alignBottom="@+id/icon"
+        android:layout_alignStart="@+id/textView26" />
+
+    <TextView
+        android:id="@+id/dateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView15"
+        android:layout_alignBottom="@+id/textView15"
+        android:layout_marginStart="14dp"
+        android:layout_toEndOf="@+id/textView15"
+        android:text="DAY, MM DD YYYY hh:mm:ss"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="status "
+        android:textStyle="italic"
+        android:layout_alignBottom="@+id/textView28"
+        android:layout_alignStart="@+id/textView29" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="status "
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/orderID" />
+
+</RelativeLayout>
