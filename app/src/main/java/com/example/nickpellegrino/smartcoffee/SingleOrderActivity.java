@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SingleOrderActivity extends AppCompatActivity {
 
     TextView orderID_tv, classroom_tv, coffeeOrder_tv, coffeeSize_tv, creamKind_tv, creams_tv, sugarKind_tv, sugars_tv;
-    String userID, orderID, classroom, coffeeOrder, coffeeSize, creamKind, creams, sugarKind, sugars;
+    String userID, orderID, classroom, coffeeOrder, coffeeSize, creamKind, creams, sugarKind, sugars, status;
     String newStatus;
     FirebaseDatabase database;
 
@@ -35,6 +35,7 @@ public class SingleOrderActivity extends AppCompatActivity {
         creams = i.getStringExtra("creams");
         sugarKind = i.getStringExtra("sugarKind");
         sugars = i.getStringExtra("sugars");
+        status = i.getStringExtra("status");
 
         orderID_tv = (TextView) findViewById(R.id.orderID);
         classroom_tv = (TextView) findViewById(R.id.classroom);
@@ -53,8 +54,24 @@ public class SingleOrderActivity extends AppCompatActivity {
         creams_tv.setText(creams);
         sugarKind_tv.setText(sugarKind);
         sugars_tv.setText(sugars);
-        RadioButton pendingRB = (RadioButton)findViewById(R.id.pendingRadioButton);
-        pendingRB.setChecked(true);
+        switch (status){
+            case "Pending":
+                RadioButton pendingRB = (RadioButton)findViewById(R.id.pendingRadioButton);
+                pendingRB.setChecked(true);
+                break;
+            case "Brewing":
+                RadioButton brewingRB = (RadioButton)findViewById(R.id.brewingRadioButton);
+                brewingRB.setChecked(true);
+                break;
+            case "In Transit":
+                RadioButton intransitRB = (RadioButton)findViewById(R.id.intransitRadioButton);
+                intransitRB.setChecked(true);
+                break;
+            case "Delivered":
+                RadioButton deliveredRB = (RadioButton)findViewById(R.id.deliveredRadioButton);
+                deliveredRB.setChecked(true);
+                break;
+        }
 
 
         /**********************ORDER BUTTON LOGIC***********************************************************/
@@ -64,7 +81,7 @@ public class SingleOrderActivity extends AppCompatActivity {
                 DatabaseReference myRef = database.getReference("Orders").child(orderID).child("status");
                 myRef.setValue(newStatus);
                 Toast.makeText(getApplicationContext(), "Order status has been updated!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                Intent intent = new Intent(getApplicationContext(), VendorHomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -84,7 +101,7 @@ public class SingleOrderActivity extends AppCompatActivity {
             case R.id.intransitRadioButton:
                 newStatus = "In Transit";
                 break;
-            case R.id.deliveredButton:
+            case R.id.deliveredRadioButton:
                 newStatus = "Delivered";
                 break;
         }

@@ -34,8 +34,8 @@ public class VendorHomeActivity extends AppCompatActivity {
 
     SimpleAdapter simple_adapter;
     ArrayList<Map<String, String>> list_map = new ArrayList<Map<String, String>>();
-    String[] from = { "orderID", "roomNumber"};// "coffeeType", "coffeeSize", "sugarType", "sugars", "creamType", "creams"  };
-    int[] to = { R.id.orderID, R.id.roomNumber}; // R.id.coffeeType, R.id.coffeeSize, R.id.sugarType, R.id.sugars, R.id.creamType, R.id.creams };
+    String[] from = { "orderID", "roomNumber", "statusImageView"};// "coffeeType", "coffeeSize", "sugarType", "sugars", "creamType", "creams"  };
+    int[] to = { R.id.orderID, R.id.roomNumber, R.id.icon}; // R.id.coffeeType, R.id.coffeeSize, R.id.sugarType, R.id.sugars, R.id.creamType, R.id.creams };
 
     ProgressBar spinner;    // This is the Adapter being used to display the list's data
 
@@ -92,6 +92,20 @@ public class VendorHomeActivity extends AppCompatActivity {
                         HashMap<String, String> item = new HashMap<String, String>();
                         item.put("orderID", String.valueOf(order.orderID));
                         item.put("roomNumber", order.classroom);
+                        switch (order.status){
+                            case "Pending":
+                                item.put("statusImageView", String.valueOf(R.drawable.pending));
+                                break;
+                            case "Brewing":
+                                item.put("statusImageView", String.valueOf(R.drawable.brewing));
+                                break;
+                            case "In Transit":
+                                item.put("statusImageView", String.valueOf(R.drawable.truck));
+                                break;
+                            case "Delivered":
+                                item.put("statusImageView", String.valueOf(R.drawable.delivered));
+                                break;
+                        }
                         list_map.add(item);
 
                         Log.e("Vendor Home ","order : " + String.valueOf(order.orderID) );
@@ -118,6 +132,7 @@ public class VendorHomeActivity extends AppCompatActivity {
                             i.putExtra("creams", String.valueOf(orders.get(position).creams));
                             i.putExtra("sugarKind", orders.get(position).sugarKind);
                             i.putExtra("sugars", String.valueOf(orders.get(position).sugars));
+                            i.putExtra("status", orders.get(position).status);
                             startActivity(i);
 
                         }
