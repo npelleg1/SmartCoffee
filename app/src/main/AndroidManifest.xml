@@ -21,7 +21,7 @@
         <activity android:name=".OrderActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".QuickOrderActivity" />
-        <!--<activity android:name=".VendorHomeActivity" />-->
+        <activity android:name=".VendorHomeActivity" />
         <activity android:name=".SingleOrderActivity" />
         <activity android:name=".UserHistoryActivity" />
         <activity android:name=".UserSingleOrderActivity" />
