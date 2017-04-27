@@ -54,29 +54,20 @@ public class ProfileActivity extends AppCompatActivity {
         Button orderButton = (Button) findViewById(R.id.savePreferencesButton);
         orderButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                if (coffeeType == null){
-                    Toast.makeText(getApplicationContext(), "Please Select a Coffee Flavor", Toast.LENGTH_SHORT).show();
-                }
-                else if (coffeeSize == null){
-                    Toast.makeText(getApplicationContext(), "Please Select a Drink Size", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    classroom = roomPicker.getDisplayedValues()[roomPicker.getValue()];
-                    DatabaseReference myRef = database.getReference("Preferences");
-                    CoffeeOrder newOrder = new CoffeeOrder(coffeeType, coffeeSize, classroom, Integer.parseInt(sugarText.getText().toString()), Integer.parseInt(creamText.getText().toString()), userID, sugarKind, creamKind);
-                    myRef.child(userID).setValue(newOrder);
-                    Toast.makeText(getApplicationContext(), "Your Preferences Have Been Saved!", Toast.LENGTH_SHORT).show();
-                    Intent intent2 = new Intent(getApplicationContext(), HomeActivity.class);
-                    intent2.putExtra("UserID", userID);
-                    startActivity(intent2);
-                }
+                classroom = roomPicker.getDisplayedValues()[roomPicker.getValue()];
+                DatabaseReference myRef = database.getReference("Preferences");
+                CoffeeOrder newOrder = new CoffeeOrder(coffeeType, coffeeSize, classroom, Integer.parseInt(sugarText.getText().toString()), Integer.parseInt(creamText.getText().toString()), userID, sugarKind, creamKind);
+                myRef.child(userID).setValue(newOrder);
+                Toast.makeText(getApplicationContext(), "Your Preferences Have Been Saved!", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(getApplicationContext(), HomeActivity.class);
+                intent2.putExtra("UserID", userID);
+                startActivity(intent2);
             }
         });
 
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
                 CoffeeOrder order = dataSnapshot.getValue(CoffeeOrder.class);
                 if (order != null) {
                     sugarText.setText(String.valueOf(order.sugars));
@@ -84,9 +75,11 @@ public class ProfileActivity extends AppCompatActivity {
                     for (int i = 0; i < values.length; i++) {
                         if (values[i].equals(order.classroom)) {
                             roomPicker.setValue(i);
+                            classroom = order.classroom;
                             break;
                         }
                     }
+                    creamKind = order.creamKind;
                     switch(order.creamKind){
                         case "A":
                             RadioButton creamARadioButton = (RadioButton) findViewById(R.id.creamARadioButton);
@@ -101,6 +94,7 @@ public class ProfileActivity extends AppCompatActivity {
                             creamCRadioButton.setChecked(true);
                             break;
                     }
+                    sugarKind = order.sugarKind;
                     switch(order.sugarKind){
                         case "Regular":
                             RadioButton regularRadioButton = (RadioButton) findViewById(R.id.regularRadioButton);
@@ -115,6 +109,7 @@ public class ProfileActivity extends AppCompatActivity {
                             equalRadioButton.setChecked(true);
                             break;
                     }
+                    coffeeType = order.coffeeOrder;
                     switch (order.coffeeOrder){
                         case "Morning Blend":
                             RadioButton morningBlendRadioButton = (RadioButton) findViewById(R.id.morningBlendRadioButton);
@@ -125,6 +120,7 @@ public class ProfileActivity extends AppCompatActivity {
                             hazelnutRadioButton.setChecked(true);
                             break;
                     }
+                    coffeeSize = order.coffeeSize;
                     switch (order.coffeeSize){
                         case "Medium":
                             RadioButton mediumRadioButton = (RadioButton) findViewById(R.id.mediumSizeRadioButton);
