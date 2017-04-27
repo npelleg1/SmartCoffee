@@ -27,7 +27,7 @@
         android:layout_marginStart="11dp"
         android:text="orderID "
         android:textStyle="italic"
-        android:layout_above="@+id/textView28"
+        android:layout_above="@+id/statusTextView"
         android:layout_toEndOf="@+id/icon" />
 
     <TextView
@@ -87,11 +87,11 @@
         android:layout_height="wrap_content"
         android:text="status "
         android:textStyle="italic"
-        android:layout_alignBottom="@+id/textView28"
+        android:layout_alignBottom="@+id/statusTextView"
         android:layout_alignStart="@+id/textView29" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/statusTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="status "

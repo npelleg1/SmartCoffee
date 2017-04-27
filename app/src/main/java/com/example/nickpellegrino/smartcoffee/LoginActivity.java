@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,9 +26,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private boolean isVendor;
     FirebaseDatabase database;
     DatabaseReference myRef;
+    ProgressBar spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,6 @@ public class LoginActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         final EditText emailText = (EditText) findViewById(R.id.emailTextField);
         final EditText passwordText = (EditText) findViewById(R.id.passwordTextField);
-        isVendor = false;
         myRef = database.getReference().child("Vendors");
         mAuth = FirebaseAuth.getInstance();
 
@@ -84,7 +84,6 @@ public class LoginActivity extends AppCompatActivity {
                     .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-
                             // If sign in fails, display a message to the user. If sign in succeeds
                             // the auth state listener will be notified and logic to handle the
                             // signed in user can be handled in the listener.
@@ -97,27 +96,40 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private class VerifyVendorTask extends AsyncTask<String, Void, Boolean> {
+    private class VerifyVendorTask extends AsyncTask<String, Void, Void> {
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            spinner = (ProgressBar)findViewById(R.id.progressBar2);
+            spinner.setVisibility(View.VISIBLE);
         }
 
         @Override
-        protected Boolean doInBackground(String... params) {
+        protected Void doInBackground(String... params) {
             final String email = params[0];
             myRef = database.getReference().child("Vendors");
+
+            final boolean[] isVendor = {false};
 
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     for (DataSnapshot ds : dataSnapshot.getChildren()){
                         if (ds.getKey().equals("email") && ds.getValue().equals(email)){
-                            isVendor = true;
-                            Intent intent = new Intent(getApplicationContext(), VendorHomeActivity.class);
-                            intent.putExtra("UserID", mAuth.getCurrentUser().getUid());
-                            startActivity(intent);
+                            isVendor[0] = true;
                         }
+                    }
+
+                    if (!isVendor[0]) {
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        intent.putExtra("UserID", mAuth.getCurrentUser().getUid());
+                        startActivity(intent);
+                    }
+                    else {
+                        Intent intent = new Intent(getApplicationContext(), VendorHomeActivity.class);
+                        intent.putExtra("UserID", mAuth.getCurrentUser().getUid());
+                        startActivity(intent);
                     }
                 }
                 @Override
@@ -125,21 +137,12 @@ public class LoginActivity extends AppCompatActivity {
                     System.out.println(databaseError.getMessage());
                 }
             });
-            return isVendor;
+            return null;
         }
 
         @Override
-        protected void onPostExecute(Boolean result) {
-            if (!result) {
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                intent.putExtra("UserID", mAuth.getCurrentUser().getUid());
-                startActivity(intent);
-            }
-            else {
-                Intent intent = new Intent(getApplicationContext(), VendorHomeActivity.class);
-                intent.putExtra("UserID", mAuth.getCurrentUser().getUid());
-                startActivity(intent);
-            }
+        protected void onPostExecute(Void result) {
+            spinner.setVisibility(View.GONE);
         }
     }
 }

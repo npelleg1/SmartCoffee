@@ -35,8 +35,8 @@ public class UserTrackerActivity extends AppCompatActivity {
 
     SimpleAdapter simple_adapter;
     ArrayList<Map<String, String>> list_map = new ArrayList<Map<String, String>>();
-    String[] from = { "orderID", "roomNumber", "dateTime" };
-    int[] to = { R.id.orderID, R.id.roomNumber, R.id.dateTime};
+    String[] from = { "orderID", "roomNumber", "dateTime", "status" };
+    int[] to = { R.id.orderID, R.id.roomNumber, R.id.dateTime, R.id.statusTextView};
 
     ProgressBar spinner;    // This is the Adapter being used to display the list's data
     String userID;
@@ -115,6 +115,7 @@ public class UserTrackerActivity extends AppCompatActivity {
                         item.put("orderID", String.valueOf(order.orderID));
                         item.put("roomNumber", order.classroom);
                         item.put("dateTime", order.orderedDate);
+                        item.put("status", order.status);
                         list_map.add(item);
                     }
 
