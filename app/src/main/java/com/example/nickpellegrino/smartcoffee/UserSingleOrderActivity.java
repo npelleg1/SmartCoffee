@@ -56,7 +56,7 @@ public class UserSingleOrderActivity extends AppCompatActivity {
         sugarKind_tv.setText(sugarKind);
         sugars_tv.setText(sugars);
 
-        Button sendBackButton = (Button) findViewById(R.id.sendBackButton);
+        Button sendBackButton = (Button) findViewById(R.id.acknowledgeOrderButton);
 
         switch (status){
             case "Pending":
@@ -72,11 +72,10 @@ public class UserSingleOrderActivity extends AppCompatActivity {
     }
 
     public void onSendBackButtonClick(View view){
-        TextView statusText = (TextView) findViewById(R.id.statusTextView);
-        String status = statusText.getText().toString();
         Map<String, Object> orderUpdate = new HashMap<String, Object>();
-        orderUpdate.put("sendBack", "yes");
+        orderUpdate.put("status", "Going Back");
         database.getReference("InTransit").updateChildren(orderUpdate);
+        database.getReference("Orders").child(orderID).updateChildren(orderUpdate);
     }
 
 }
