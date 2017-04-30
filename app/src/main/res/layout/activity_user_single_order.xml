@@ -209,11 +209,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <Button
+                    android:id="@+id/acknowledgeOrderButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/statusTV"
+                    android:layout_marginTop="30dp"
+                    android:onClick="onSendBackButtonClick"
+                    android:text="Acknowledge Order" />
+
+                <TextView
+                    android:id="@+id/statusTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view4"
+                    android:layout_toEndOf="@+id/textView42"
+                    android:text="Status"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
                 <View
                     android:id="@+id/view4"
                     android:layout_width="fill_parent"
                     android:layout_height="5dip"
-                    android:background="@drawable/rise_shadow"/>
+                    android:background="@drawable/rise_shadow" />
 
                 <!--android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textStyle="italic" -->
@@ -223,7 +243,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
+                    android:layout_below="@+id/view4"
                     android:text="Status "
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textStyle="bold" />

@@ -2,21 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="100dp"
     tools:context="com.example.nickpellegrino.smartcoffee.UserTrackerActivity">
     >
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
-        android:layout_marginStart="19dp"
-        android:src="@drawable/login_img"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/view"
-        android:layout_alignParentStart="true"></ImageView>
+        android:layout_marginStart="20dp"
+        android:src="@drawable/login_img"></ImageView>
 
     <View
         android:id="@+id/view"
@@ -29,49 +28,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
-        android:layout_toEndOf="@+id/icon"
         android:text="orderID "
         android:textStyle="italic"
-        android:layout_below="@+id/textView15" />
+        android:layout_above="@+id/roomNumber"
+        android:layout_toEndOf="@+id/icon" />
 
     <TextView
         android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="room# "
-        android:layout_below="@+id/textView29"
+        android:layout_above="@+id/statusTextView"
         android:layout_alignStart="@+id/textView29" />
 
     <TextView
         android:id="@+id/orderID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView29"
-        android:layout_alignBottom="@+id/textView29"
-        android:layout_toEndOf="@+id/textView29"
         android:text="ORDERID"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/textView29"
+        android:layout_alignBottom="@+id/textView29"
+        android:layout_alignStart="@+id/dateTime" />
 
     <TextView
         android:id="@+id/roomNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView33"
-        android:layout_alignBottom="@+id/textView33"
-        android:layout_toEndOf="@+id/textView33"
         android:text="ROOM#"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/textView33"
+        android:layout_alignBottom="@+id/textView33"
+        android:layout_alignStart="@+id/orderID" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView26"
         android:text="Date/Time"
         android:textStyle="italic"
-        android:layout_alignTop="@+id/icon" />
+        android:layout_alignTop="@+id/icon"
+        android:layout_alignStart="@+id/textView29" />
 
     <TextView
         android:id="@+id/dateTime"
@@ -90,9 +89,8 @@
         android:layout_height="wrap_content"
         android:text="status "
         android:textStyle="italic"
-        android:layout_alignStart="@+id/textView33"
-        android:layout_below="@+id/textView33"
-        android:layout_alignBottom="@+id/icon" />
+        android:layout_alignBottom="@+id/icon"
+        android:layout_alignStart="@+id/textView33" />
 
     <TextView
         android:id="@+id/statusTextView"
@@ -103,16 +101,6 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         android:layout_alignBottom="@+id/textView26"
-        android:layout_toEndOf="@+id/textView33" />
-
-    <Button
-        android:id="@+id/sendBackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/icon"
-        android:layout_below="@+id/statusTextView"
-        android:onClick="onSendBackButtonClick"
-        android:text="Send Back Robot" />
+        android:layout_alignStart="@+id/roomNumber" />
 
 </RelativeLayout>

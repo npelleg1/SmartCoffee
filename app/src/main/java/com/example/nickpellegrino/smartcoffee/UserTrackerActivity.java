@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -63,18 +62,9 @@ public class UserTrackerActivity extends AppCompatActivity {
         new RemoteDataTask().execute();
 
     }
+/*
 
-    public void onSendBackButtonClick(View view){
-        TextView statusText = (TextView) findViewById(R.id.statusTextView);
-        String status = statusText.getText().toString();
-        if (!status.equals("Delivered")) {
-            Toast.makeText(UserTrackerActivity.this, "Send Back Feature Available Once Coffee Is Delivered", Toast.LENGTH_SHORT).show();
-        }else{
-            Map<String, Object> orderUpdate = new HashMap<String, Object>();
-            orderUpdate.put("sendBack", "yes");
-            database.getReference("InTransit").updateChildren(orderUpdate);
-        }
-    }
+`*/
 
     private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
         @Override
@@ -139,13 +129,14 @@ public class UserTrackerActivity extends AppCompatActivity {
                     myListView.setAdapter(simple_adapter);
 
                     // Capture button clicks on ListView items
-                    /*
+
                     myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                             Intent i = new Intent(UserTrackerActivity.this, UserSingleOrderActivity.class);
                             i.putExtra("userID", orders.get(position).userID);
+                            i.putExtra("status", orders.get(position).status);
                             i.putExtra("orderID", String.valueOf(orders.get(position).orderID));
                             i.putExtra("classroom", orders.get(position).classroom);
                             i.putExtra("coffeeOrder", orders.get(position).coffeeOrder);
@@ -158,7 +149,7 @@ public class UserTrackerActivity extends AppCompatActivity {
 
                         }
                     });
-                    */
+
                     // Close the progressdialog
                     spinner.setVisibility(View.GONE);
 
@@ -166,7 +157,6 @@ public class UserTrackerActivity extends AppCompatActivity {
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
                     System.out.println(databaseError.getMessage());
-
                 }
             });
 
