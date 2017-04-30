@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -62,6 +64,18 @@ public class UserTrackerActivity extends AppCompatActivity {
 
     }
 
+    public void onSendBackButtonClick(View view){
+        TextView statusText = (TextView) findViewById(R.id.statusTextView);
+        String status = statusText.getText().toString();
+        if (!status.equals("Delivered")) {
+            Toast.makeText(UserTrackerActivity.this, "Send Back Feature Available Once Coffee Is Delivered", Toast.LENGTH_SHORT).show();
+        }else{
+            Map<String, Object> orderUpdate = new HashMap<String, Object>();
+            orderUpdate.put("sendBack", "yes");
+            database.getReference("InTransit").updateChildren(orderUpdate);
+        }
+    }
+
     private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
@@ -100,8 +114,7 @@ public class UserTrackerActivity extends AppCompatActivity {
 
                             Log.e("User History ", "postSnapshot.userID  = " + postSnapshot.getValue(CoffeeOrder.class).userID);
                             // Also Filter Outon ORders that have yet been delivered
-                            if (postSnapshot.getValue(CoffeeOrder.class).userID.equals(userID) &&
-                                    dfc.format(currDate).equals(dfc.format(orderDate))) {
+                            if (postSnapshot.getValue(CoffeeOrder.class).userID.equals(userID) ) {
                                 orders.add(postSnapshot.getValue(CoffeeOrder.class));
                             }
                         }
