@@ -25,23 +25,16 @@ public class OrderActivity extends AppCompatActivity {
     int creams = 0;
     FirebaseDatabase database;
 
-    ImageButton morning_ib = (ImageButton) findViewById(R.id.morningBlendButton);
-    ImageButton hazelnut_ib = (ImageButton) findViewById(R.id.hazelnutButton);
-    ImageButton splenda_ib = (ImageButton) findViewById(R.id.splendaSugarButton);
-    ImageButton equal_ib = (ImageButton) findViewById(R.id.equalSugarButton);
-    ImageButton regular_ib = (ImageButton) findViewById(R.id.regularSugarButton);
-    ImageButton cream_a_ib = (ImageButton) findViewById(R.id.creamAButton);
-    ImageButton cream_b_ib = (ImageButton) findViewById(R.id.creamBButton);
-    ImageButton cream_c_ib = (ImageButton) findViewById(R.id.creamCButton);
-    ImageButton medium_coffee_ib = (ImageButton) findViewById(R.id.mediumCoffeeButton);
-    ImageButton large_coffee_ib = (ImageButton) findViewById(R.id.largeCoffeeButton);
-
-
-
-
-    //ImageButton morining = (ImageButton) findViewById(R.id.morningBlendButton);
-    //ImageButton hazelnut = (ImageButton) findViewById(R.id.hazelnutButton);
-
+    ImageButton morning_ib;
+    ImageButton hazelnut_ib;
+    ImageButton splenda_ib;
+    ImageButton equal_ib;
+    ImageButton regular_ib;
+    ImageButton cream_a_ib;
+    ImageButton cream_b_ib;
+    ImageButton cream_c_ib;
+    ImageButton medium_coffee_ib;
+    ImageButton large_coffee_ib;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -52,6 +45,17 @@ public class OrderActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         userID = intent.getStringExtra("UserID");
+
+        morning_ib = (ImageButton) findViewById(R.id.morningBlendButton);
+        hazelnut_ib = (ImageButton) findViewById(R.id.hazelnutButton);
+        splenda_ib = (ImageButton) findViewById(R.id.splendaSugarButton);
+        equal_ib = (ImageButton) findViewById(R.id.equalSugarButton);
+        regular_ib = (ImageButton) findViewById(R.id.regularSugarButton);
+        cream_a_ib = (ImageButton) findViewById(R.id.creamAButton);
+        cream_b_ib = (ImageButton) findViewById(R.id.creamBButton);
+        cream_c_ib = (ImageButton) findViewById(R.id.creamCButton);
+        medium_coffee_ib = (ImageButton) findViewById(R.id.mediumCoffeeButton);
+        large_coffee_ib = (ImageButton) findViewById(R.id.largeCoffeeButton);
 
 /*******************SUGAR COUNT LOGIC***************************************************************/
         final TextView sugarCountTextView = (TextView) findViewById(R.id.sugarCountTextView);
@@ -136,12 +140,12 @@ public class OrderActivity extends AppCompatActivity {
             case R.id.morningBlendButton:
                 coffeeOrder = "Morning Blend";
                 morning_ib.setImageResource(R.drawable.clicked_sunrise);
-                hazelnut_ib.setBackgroundResource(R.drawable.hazelnut);
+                hazelnut_ib.setImageResource(R.drawable.hazelnut);
                 break;
             case R.id.hazelnutButton:
                 coffeeOrder = "Hazelnut";
                 morning_ib.setImageResource(R.drawable.sunrise);
-                hazelnut_ib.setBackgroundResource(R.drawable.clicked_hazelnut);
+                hazelnut_ib.setImageResource(R.drawable.clicked_hazelnut);
                 break;
         }
     }
@@ -153,12 +157,12 @@ public class OrderActivity extends AppCompatActivity {
             case R.id.mediumCoffeeButton:
                 coffeeSize = "Medium";
                 medium_coffee_ib.setImageResource(R.drawable.clicked_coffee);
-                large_coffee_ib.setBackgroundResource(R.drawable.coffee);
+                large_coffee_ib.setImageResource(R.drawable.coffee);
                 break;
             case R.id.largeCoffeeButton:
                 coffeeSize = "Large";
                 medium_coffee_ib.setImageResource(R.drawable.coffee);
-                large_coffee_ib.setBackgroundResource(R.drawable.clicked_coffee);
+                large_coffee_ib.setImageResource(R.drawable.clicked_coffee);
                 break;
         }
     }

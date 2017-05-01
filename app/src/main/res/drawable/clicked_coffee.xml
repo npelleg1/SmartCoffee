@@ -4,6 +4,7 @@
     <item android:drawable="@drawable/clicked_square" />
 
     <item android:drawable="@drawable/coffee"
+        android:scaleType="fitCenter"
         />
 
 

@@ -270,7 +270,7 @@
 
     <ImageButton
         android:id="@+id/largeCoffeeButton"
-        android:layout_width="60dp"
+        android:layout_width="63.9dp"
         android:layout_height="90dp"
         android:layout_below="@+id/textView12"
         android:layout_marginTop="12dp"
