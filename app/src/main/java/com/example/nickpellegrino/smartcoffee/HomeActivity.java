@@ -27,17 +27,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        final ImageButton historyButton = (ImageButton) findViewById(R.id.historyButton);
-        historyButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Log.e("User Home","ABAOUT TO RUN HISTORY");
-                Intent intent = new Intent(getApplicationContext(), UserHistoryActivity.class);
-                intent.putExtra("userID", userID);
-                Log.e("User Home", "user ID = " + userID);
-                startActivity(intent);
-            }
-        });
-
         final ImageButton statusButton = (ImageButton) findViewById(R.id.statuus);
         statusButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

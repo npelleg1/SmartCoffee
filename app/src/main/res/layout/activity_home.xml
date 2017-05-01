@@ -71,27 +71,14 @@
             android:layout_height="5dip"
             android:background="@drawable/rise_shadow"></View>
 
-        <ImageButton
-            android:id="@+id/historyButton"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="20dp"
-            android:background="@null"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/clock"
-            android:layout_marginTop="27dp"
-            android:layout_below="@+id/view2"
-            android:layout_alignParentStart="true" />
-
         <Button
             android:id="@+id/quickOrderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="31dp"
             android:text="Quick Order"
-            android:layout_below="@+id/profileButton"
-            android:layout_alignStart="@+id/profileButton"
-            android:layout_alignEnd="@+id/newOrderButton" />
+            android:layout_below="@+id/statuus"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
 
         <ImageButton
             android:id="@+id/profileButton"
@@ -100,20 +87,19 @@
             android:background="@null"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/user"
-            android:layout_alignTop="@+id/historyButton"
-            android:layout_toEndOf="@+id/historyButton"
-            android:layout_marginStart="19dp" />
+            android:layout_below="@+id/view2"
+            android:layout_toStartOf="@+id/quickOrderButton"
+            android:layout_marginTop="13dp" />
 
         <ImageButton
             android:id="@+id/statuus"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_alignTop="@+id/newOrderButton"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/newOrderButton"
             android:background="@null"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/truck" />
+            app:srcCompat="@drawable/truck"
+            android:layout_alignTop="@+id/newOrderButton"
+            android:layout_toEndOf="@+id/quickOrderButton" />
 
         <ImageButton
             android:id="@+id/newOrderButton"
@@ -122,9 +108,8 @@
             android:background="@null"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/coffee"
-            android:layout_above="@+id/quickOrderButton"
-            android:layout_toEndOf="@+id/profileButton"
-            android:layout_marginStart="22dp" />
+            android:layout_alignTop="@+id/profileButton"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 </RelativeLayout>

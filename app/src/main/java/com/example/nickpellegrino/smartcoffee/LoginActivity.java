@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     FirebaseDatabase database;
     DatabaseReference myRef;
-    ProgressBar spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
+                System.out.println("USER IS: " + user);
                 if (user != null) {
                     new VerifyVendorTask().execute(mAuth.getCurrentUser().getEmail());
                 } else {
@@ -101,8 +101,6 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            spinner = (ProgressBar)findViewById(R.id.progressBar2);
-            spinner.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -142,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void result) {
-            spinner.setVisibility(View.GONE);
+
         }
     }
 }
