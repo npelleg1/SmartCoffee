@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="19dp"
         android:src="@drawable/login_img"></ImageView>
 
     <View
@@ -27,9 +27,9 @@
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
+        android:layout_marginStart="13dp"
         android:text="orderID "
-        android:textStyle="italic"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:layout_above="@+id/roomNumber"
         android:layout_toEndOf="@+id/icon" />
 
@@ -38,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="room# "
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:layout_above="@+id/statusTextView"
         android:layout_alignStart="@+id/textView29" />
 
@@ -48,9 +49,9 @@
         android:text="ORDERID"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
-        android:layout_alignBaseline="@+id/textView29"
-        android:layout_alignBottom="@+id/textView29"
-        android:layout_alignStart="@+id/dateTime" />
+        android:layout_marginStart="21dp"
+        android:layout_below="@+id/dateTime"
+        android:layout_toEndOf="@+id/textView29" />
 
     <TextView
         android:id="@+id/roomNumber"
@@ -59,37 +60,25 @@
         android:text="ROOM#"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
-        android:layout_alignBaseline="@+id/textView33"
-        android:layout_alignBottom="@+id/textView33"
+        android:layout_below="@+id/orderID"
         android:layout_alignStart="@+id/orderID" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date/Time"
-        android:textStyle="italic"
-        android:layout_alignTop="@+id/icon"
-        android:layout_alignStart="@+id/textView29" />
 
     <TextView
         android:id="@+id/dateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView15"
-        android:layout_alignBottom="@+id/textView15"
-        android:layout_marginStart="14dp"
-        android:layout_toEndOf="@+id/textView15"
         android:text="DAY, MM DD YYYY hh:mm:ss"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/icon"
+        android:layout_alignStart="@+id/textView29" />
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="status "
-        android:textStyle="italic"
-        android:layout_alignBottom="@+id/icon"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_alignBottom="@+id/statusTextView"
         android:layout_alignStart="@+id/textView33" />
 
     <TextView
@@ -100,7 +89,7 @@
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
-        android:layout_alignBottom="@+id/textView26"
+        android:layout_below="@+id/roomNumber"
         android:layout_alignStart="@+id/roomNumber" />
 
 </RelativeLayout>

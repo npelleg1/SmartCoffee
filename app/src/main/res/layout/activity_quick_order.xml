@@ -6,132 +6,184 @@
     android:layout_height="match_parent"
     tools:context="com.example.nickpellegrino.smartcoffee.QuickOrderActivity">
 
-    <Button
-        android:id="@+id/orderButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:text="Order Now!" />
-
-    <TextView
-        android:id="@+id/textView37"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:orientation="vertical"
         android:layout_alignParentTop="true"
-        android:text="Coffee Flavor"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+        android:layout_alignParentStart="true">
 
-    <TextView
-        android:id="@+id/coffeeFlavorTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView37"
-        android:layout_alignParentEnd="true"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+        <View
+            android:id="@+id/view5"
+            android:layout_width="fill_parent"
+            android:layout_height="5dip"
+            android:background="@drawable/drop_shadow"/>
 
-    <TextView
-        android:id="@+id/textView39"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView37"
-        android:text="Coffee Size"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="Quick Order "
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/coffeeSizeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView39"
-        android:layout_alignEnd="@+id/coffeeFlavorTextView"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView41"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView39"
-        android:text="Cream Kind"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+            <View
+                android:id="@+id/view4"
+                android:layout_width="fill_parent"
+                android:layout_height="5dip"
+                android:background="@drawable/rise_shadow"/>
+            <Button
+                android:id="@+id/orderButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Order Now!"
+                android:layout_below="@+id/textView47"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="29dp" />
 
-    <TextView
-        android:id="@+id/creamKindTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView41"
-        android:layout_alignEnd="@+id/coffeeSizeTextView"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+            <TextView
+                android:id="@+id/coffeeFlavorTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="flavor"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:layout_alignBaseline="@+id/textView37"
+                android:layout_alignBottom="@+id/textView37"
+                android:layout_toEndOf="@+id/textView37" />
 
-    <TextView
-        android:id="@+id/textView43"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView41"
-        android:text="Creams"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coffee Flavor"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:textStyle="bold"
+                android:layout_below="@+id/classroomTextView"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:id="@+id/creamCountTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView43"
-        android:layout_alignEnd="@+id/creamKindTextView"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coffee Size"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:textStyle="bold"
+                android:layout_below="@+id/textView37"
+                android:layout_alignParentStart="true" />
 
-    <TextView
-        android:id="@+id/textView45"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView43"
-        android:text="Sugar Kind"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+            <TextView
+                android:id="@+id/coffeeSizeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cofsize"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:layout_below="@+id/coffeeFlavorTextView"
+                android:layout_toEndOf="@+id/textView37" />
 
-    <TextView
-        android:id="@+id/sugarKindTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView45"
-        android:layout_alignParentEnd="true"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView39"
+                android:text="Cream Kind"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView47"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView45"
-        android:text="Sugars"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+            <TextView
+                android:id="@+id/creamKindTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cream kind"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:layout_below="@+id/coffeeSizeTextView"
+                android:layout_alignStart="@+id/coffeeSizeTextView" />
 
-    <TextView
-        android:id="@+id/sugarCountTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView47"
-        android:layout_alignParentEnd="true"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+            <TextView
+                android:id="@+id/textView43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView41"
+                android:text="Creams"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView49"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView47"
-        android:text="Classroom"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+            <TextView
+                android:id="@+id/creamCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cream count "
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:layout_below="@+id/creamKindTextView"
+                android:layout_alignStart="@+id/creamKindTextView" />
 
-    <TextView
-        android:id="@+id/classroomTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView49"
-        android:layout_alignEnd="@+id/sugarCountTextView"
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+            <TextView
+                android:id="@+id/sugarKindTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sKing"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:layout_below="@+id/creamCountTextView"
+                android:layout_alignStart="@+id/creamCountTextView" />
+
+            <TextView
+                android:id="@+id/textView45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sugar Kind"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:textStyle="bold"
+                android:layout_below="@+id/textView43"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sugars"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:textStyle="bold"
+                android:layout_below="@+id/textView45"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/sugarCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sCount"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:layout_below="@+id/sugarKindTextView"
+                android:layout_alignStart="@+id/sugarKindTextView" />
+
+            <TextView
+                android:id="@+id/classroomTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="classroom"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:layout_below="@+id/view4"
+                android:layout_toEndOf="@+id/textView37"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Classroom"
+                android:textAppearance="@android:style/TextAppearance.Material.Display1"
+                android:textStyle="bold"
+                android:layout_above="@+id/textView37"
+                android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </android.widget.RelativeLayout>

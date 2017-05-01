@@ -24,11 +24,11 @@
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/orderID"
         android:layout_alignBottom="@+id/orderID"
-        android:layout_marginStart="12dp"
         android:layout_toEndOf="@+id/icon"
         android:text="orderID "
-        android:textStyle="italic" />
+        android:textAppearance="@style/TextAppearance.AppCompat" />
 
     <TextView
         android:id="@+id/textView33"
@@ -36,7 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/roomNumber"
         android:layout_toStartOf="@+id/roomNumber"
-        android:text="room# " />
+        android:text="room# "
+        android:textAppearance="@style/TextAppearance.AppCompat" />
 
     <TextView
         android:id="@+id/orderID"
