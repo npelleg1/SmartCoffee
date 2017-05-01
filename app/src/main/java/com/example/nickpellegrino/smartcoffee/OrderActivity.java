@@ -25,6 +25,19 @@ public class OrderActivity extends AppCompatActivity {
     int creams = 0;
     FirebaseDatabase database;
 
+    ImageButton morning_ib = (ImageButton) findViewById(R.id.morningBlendButton);
+    ImageButton hazelnut_ib = (ImageButton) findViewById(R.id.hazelnutButton);
+    ImageButton splenda_ib = (ImageButton) findViewById(R.id.splendaSugarButton);
+    ImageButton equal_ib = (ImageButton) findViewById(R.id.equalSugarButton);
+    ImageButton regular_ib = (ImageButton) findViewById(R.id.regularSugarButton);
+    ImageButton cream_a_ib = (ImageButton) findViewById(R.id.creamAButton);
+    ImageButton cream_b_ib = (ImageButton) findViewById(R.id.creamBButton);
+    ImageButton cream_c_ib = (ImageButton) findViewById(R.id.creamCButton);
+    ImageButton medium_coffee_ib = (ImageButton) findViewById(R.id.mediumCoffeeButton);
+    ImageButton large_coffee_ib = (ImageButton) findViewById(R.id.largeCoffeeButton);
+
+
+
 
     //ImageButton morining = (ImageButton) findViewById(R.id.morningBlendButton);
     //ImageButton hazelnut = (ImageButton) findViewById(R.id.hazelnutButton);
@@ -122,9 +135,13 @@ public class OrderActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.morningBlendButton:
                 coffeeOrder = "Morning Blend";
+                morning_ib.setImageResource(R.drawable.clicked_sunrise);
+                hazelnut_ib.setBackgroundResource(R.drawable.hazelnut);
                 break;
             case R.id.hazelnutButton:
                 coffeeOrder = "Hazelnut";
+                morning_ib.setImageResource(R.drawable.sunrise);
+                hazelnut_ib.setBackgroundResource(R.drawable.clicked_hazelnut);
                 break;
         }
     }
@@ -135,9 +152,13 @@ public class OrderActivity extends AppCompatActivity {
         switch(view.getId()){
             case R.id.mediumCoffeeButton:
                 coffeeSize = "Medium";
+                medium_coffee_ib.setImageResource(R.drawable.clicked_coffee);
+                large_coffee_ib.setBackgroundResource(R.drawable.coffee);
                 break;
             case R.id.largeCoffeeButton:
                 coffeeSize = "Large";
+                medium_coffee_ib.setImageResource(R.drawable.coffee);
+                large_coffee_ib.setBackgroundResource(R.drawable.clicked_coffee);
                 break;
         }
     }
@@ -148,12 +169,21 @@ public class OrderActivity extends AppCompatActivity {
         switch(view.getId()){
             case R.id.splendaSugarButton:
                 sugarType = "Splenda";
+                splenda_ib.setImageResource(R.drawable.clicked_suggar);
+                equal_ib.setImageResource(R.drawable.sugar);
+                regular_ib.setImageResource(R.drawable.sugar);
                 break;
             case R.id.equalSugarButton:
                 sugarType = "Equal";
+                splenda_ib.setImageResource(R.drawable.sugar);
+                equal_ib.setImageResource(R.drawable.clicked_suggar);
+                regular_ib.setImageResource(R.drawable.sugar);
                 break;
             case R.id.regularSugarButton:
                 sugarType = "Regular";
+                splenda_ib.setImageResource(R.drawable.sugar);
+                equal_ib.setImageResource(R.drawable.sugar);
+                regular_ib.setImageResource(R.drawable.clicked_suggar);
                 break;
         }
     }
@@ -164,12 +194,21 @@ public class OrderActivity extends AppCompatActivity {
         switch(view.getId()){
             case R.id.creamAButton:
                 creamType = "A";
+                cream_a_ib.setImageResource(R.drawable.clicked_cream);
+                cream_b_ib.setImageResource(R.drawable.creamcup);
+                cream_c_ib.setImageResource(R.drawable.creamcup);
                 break;
             case R.id.creamBButton:
                 creamType = "B";
+                cream_a_ib.setImageResource(R.drawable.creamcup);
+                cream_b_ib.setImageResource(R.drawable.clicked_cream);
+                cream_c_ib.setImageResource(R.drawable.creamcup);
                 break;
             case R.id.creamCButton:
                 creamType = "C";
+                cream_a_ib.setImageResource(R.drawable.creamcup);
+                cream_b_ib.setImageResource(R.drawable.creamcup);
+                cream_c_ib.setImageResource(R.drawable.clicked_cream);
                 break;
         }
     }

@@ -58,13 +58,13 @@
         android:id="@+id/morningBlendButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_alignParentTop="true"
         android:layout_marginRight="118dp"
+        android:layout_toEndOf="@+id/mediumCoffeeButton"
         android:background="@null"
         android:onClick="onCoffeeChoiceButtonClicked"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/sunrise"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/mediumCoffeeButton" />
+        app:srcCompat="@drawable/sunrise" />
 
     <TextView
         android:id="@+id/textView2"
