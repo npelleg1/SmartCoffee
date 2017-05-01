@@ -105,6 +105,9 @@ public class VendorHomeActivity extends AppCompatActivity {
                             case "Delivered":
                                 item.put("statusImageView", String.valueOf(R.drawable.delivered));
                                 break;
+                            case "Going Back":
+                                item.put("statusImageView", String.valueOf(R.drawable.going_back) );
+                                break;
                         }
                         list_map.add(item);
 
