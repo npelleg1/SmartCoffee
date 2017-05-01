@@ -82,7 +82,7 @@ public class SingleOrderActivity extends AppCompatActivity {
                 myRef.setValue(newStatus);
                 if (newStatus.equals("In Transit")){
                     InTransitOrder ito = new InTransitOrder(orderID, newStatus, classroom);
-                    database.getReference("InTransit").setValue(ito);
+                    database.getReference().child("InTransit").setValue(ito);
                 }
                 Toast.makeText(getApplicationContext(), "Order status has been updated!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), VendorHomeActivity.class);

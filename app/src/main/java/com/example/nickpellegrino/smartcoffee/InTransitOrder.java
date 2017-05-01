@@ -5,9 +5,9 @@ package com.example.nickpellegrino.smartcoffee;
  */
 
 public class InTransitOrder {
-    String orderID;
-    String status;
-    String roomNumber;
+    public String orderID;
+    public String status;
+    public String roomNumber;
 
     public InTransitOrder(){
 

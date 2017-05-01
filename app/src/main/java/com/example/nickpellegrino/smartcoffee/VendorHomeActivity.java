@@ -73,6 +73,7 @@ public class VendorHomeActivity extends AppCompatActivity {
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+                    orders.clear();
                     Log.e("Vendor Home ","data snapshot : " + dataSnapshot.getChildren().toString());
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
                         orders.add(postSnapshot.getValue(CoffeeOrder.class));

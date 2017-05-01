@@ -91,6 +91,7 @@ public class UserTrackerActivity extends AppCompatActivity {
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+                    orders.clear();
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
 
                         if (postSnapshot.getValue(CoffeeOrder.class).orderedDate != null) {
