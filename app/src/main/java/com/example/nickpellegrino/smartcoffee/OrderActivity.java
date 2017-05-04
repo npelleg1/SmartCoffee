@@ -103,7 +103,7 @@ public class OrderActivity extends AppCompatActivity {
                 "113", "115", "116", "117", "118", "119",
                 "120", "125", "126", "128", "129", "131",
                 "136", "138", "140", "141", "143", "149",
-                "155"};
+                "155", "315"};
         roomPicker.setMinValue(0);
         roomPicker.setMaxValue(values.length-1);
         roomPicker.setDisplayedValues(values);
